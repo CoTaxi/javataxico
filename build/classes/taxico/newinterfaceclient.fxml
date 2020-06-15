@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="taxico.NewinterfaceclientController">
+   <children>
+      <AnchorPane layoutX="-4.0" prefHeight="600.0" prefWidth="95.0" style="-fx-background-color: #36324D;">
+         <children>
+            <ImageView fitHeight="52.0" fitWidth="46.0" layoutX="19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/user.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="accueil" fitHeight="52.0" fitWidth="52.0" layoutX="23.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/accueil.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="52.0" fitWidth="52.0" layoutX="23.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/event.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="52.0" fitWidth="52.0" layoutX="20.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/loyalty.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="67.0" fitWidth="52.0" layoutX="20.0" layoutY="476.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/reclamation.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btn_fidelite" layoutX="16.0" layoutY="364.0" mnemonicParsing="false" onAction="#btn_fidelite" prefHeight="67.0" prefWidth="65.0" style="-fx-background-color: none;" textFill="#faf6f6">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Button>
+            <Button fx:id="btn_event" layoutX="23.0" layoutY="268.0" mnemonicParsing="false" onAction="#btn_event" prefHeight="59.0" prefWidth="52.0" style="-fx-background-color: none;" textFill="#f5f0f0">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Button>
+            <Button fx:id="reclamationbtn" layoutX="13.0" layoutY="464.0" mnemonicParsing="false" onAction="#reclamationbtn" prefHeight="67.0" prefWidth="66.0" style="-fx-background-color: none;" textFill="#f8f2f2">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Button>
+            <Button fx:id="profilbtn" layoutX="7.0" mnemonicParsing="false" onAction="#handleprofilaff" prefHeight="51.0" prefWidth="73.0" style="-fx-background-color: none;" />
+            <Button layoutX="28.0" layoutY="152.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="52.0" style="-fx-background-color: none;" textFill="#f5f5f5">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Button>
+            <Label fx:id="mailfieldp" layoutX="14.0" layoutY="63.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="97.0" layoutY="10.0" prefHeight="525.0" prefWidth="701.0">
+         <children>
+            <ImageView fx:id="coli" fitHeight="67.0" fitWidth="125.0" layoutX="298.0" layoutY="486.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/courrier.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="background" fitHeight="590.0" fitWidth="702.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/aa.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="covoiturage" fitHeight="67.0" fitWidth="104.0" layoutX="27.0" layoutY="486.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/covoitureur.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="taxi" fitHeight="67.0" fitWidth="95.0" layoutX="551.0" layoutY="486.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/taxilogo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="42.0" layoutY="560.0" prefHeight="18.0" prefWidth="95.0" text="Covoiturage" />
+            <Label layoutX="317.0" layoutY="556.0" prefHeight="26.0" prefWidth="66.0" text="Courrier" />
+            <Label layoutX="572.0" layoutY="560.0" prefHeight="18.0" prefWidth="40.0" text="Taxi" />
+            <Button fx:id="colisintbtn" layoutX="284.0" layoutY="482.0" mnemonicParsing="false" onAction="#handleecvcolis" prefHeight="78.0" prefWidth="109.0" style="-fx-background-color: none;" />
+            <Button fx:id="taxiintbtn" layoutX="537.0" layoutY="475.0" mnemonicParsing="false" onAction="#handlerechtaxi" prefHeight="78.0" prefWidth="95.0" style="-fx-background-color: none;" />
+            <Button fx:id="covaffbtn" layoutX="30.0" layoutY="486.0" mnemonicParsing="false" onAction="#handlefoundcov" prefHeight="67.0" prefWidth="95.0" style="-fx-background-color: none;" />
+         </children>
+      </AnchorPane>
+      <Pane fx:id="colisep" layoutX="92.0" prefHeight="478.0" prefWidth="710.0" style="-fx-background-color: pink;">
+         <children>
+            <ImageView fitHeight="478.0" fitWidth="710.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/aa.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="107.0" layoutY="213.0" prefHeight="25.0" prefWidth="171.0" text="A propos de l'expediteur" textFill="#fffafa" />
+            <TextField fx:id="maildest" layoutX="107.0" layoutY="261.0" promptText="Adresse  Mail" />
+            <Label layoutX="438.0" layoutY="106.0" prefHeight="25.0" prefWidth="171.0" text="A propos du destinataire" textFill="#fffafa" />
+            <Label fx:id="nomexp" layoutX="106.0" layoutY="300.0" prefHeight="25.0" prefWidth="148.0" textFill="#fffafa" />
+            <Label fx:id="prenomexp" layoutX="108.0" layoutY="325.0" prefHeight="25.0" prefWidth="148.0" textFill="#fff7f7" />
+            <Label fx:id="telephoneexp" layoutX="106.0" layoutY="337.0" prefHeight="25.0" prefWidth="148.0" textFill="#fff7f7" />
+            <Label layoutX="99.0" layoutY="436.0" text="NB / VOUS RECEVREZ UN MAIL LORS DE L'AFFECTATION DU COLIS" textFill="#fff7f7" />
+            <TextField fx:id="nomdestcol" layoutX="441.0" layoutY="143.0" promptText="nom destinataire" />
+            <TextField fx:id="teldestcol" layoutX="441.0" layoutY="186.0" promptText="numero de telephone" />
+            <TextField fx:id="maildestcol" layoutX="441.0" layoutY="236.0" promptText="Adresse Mail" />
+            <CheckBox fx:id="checkmawjoud" layoutX="395.0" layoutY="275.0" mnemonicParsing="false" onAction="#handlecheckdone" prefHeight="22.0" prefWidth="236.0" text=" Le destinataire a deja un compte TaxiCo" />
+            <ComboBox fx:id="destmawjoud" layoutX="438.0" layoutY="312.0" prefWidth="150.0" />
+            <Button fx:id="envoicolisbtn" layoutX="308.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleenvoicolis" prefHeight="35.0" prefWidth="157.0" text="Envoyer" />
+            <TextField fx:id="poidsfield" layoutX="111.0" layoutY="143.0" promptText="poidscolis" />
+            <ComboBox fx:id="departbox" layoutX="108.0" layoutY="50.0" prefWidth="150.0" promptText="depart" />
+            <ComboBox fx:id="destbox" layoutX="108.0" layoutY="104.0" prefWidth="150.0" promptText="destination" />
+         </children>
+      </Pane>
+      <Pane fx:id="reclamationp" layoutX="91.0" prefHeight="478.0" prefWidth="710.0" style="-fx-background-color: black;">
+         <children>
+            <ImageView fitHeight="478.0" fitWidth="710.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/aa.jpg" />
+               </image>
+            </ImageView>
+            <AnchorPane fx:id="anchorpane_right" layoutX="30.0" layoutY="65.0" prefHeight="368.0" prefWidth="267.0" style="-fx-background-color: 36324D;">
+               <children>
+                  <Button fx:id="btn_add" layoutX="17.0" layoutY="293.0" mnemonicParsing="false" onAction="#btn_addRec" prefHeight="19.0" prefWidth="55.0" style="-fx-background-color: #f99f1b;" text="Envoyer">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+                  <TextArea fx:id="msg_txt" layoutX="3.0" layoutY="3.0" prefHeight="142.0" prefWidth="251.0" promptText="Votre message ici..." AnchorPane.bottomAnchor="224.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0" />
+                  <Button fx:id="btn_del" layoutX="78.0" layoutY="293.0" mnemonicParsing="false" onAction="#btn_deleteRec" style="-fx-background-color: #f99f1b;" text="Supprimer">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btn_edit" layoutX="137.0" layoutY="293.0" mnemonicParsing="false" onAction="#editRec" style="-fx-background-color: #f99f1b;" text="Modifier">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btn_save" layoutX="191.0" layoutY="293.0" mnemonicParsing="false" onAction="#btn_saveEditRec" prefHeight="19.0" prefWidth="55.0" style="-fx-background-color: #f99f1b;" text="Enregistrer">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="9.0" layoutY="166.0" text="Sélectionner le chauffeur :" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="combo_list_pre" layoutX="3.0" layoutY="205.0" onAction="#btn_afficherNomChauffeur" prefHeight="25.0" prefWidth="129.0" promptText="Prénom" style="-fx-background-color: #f99f1b;">
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </ComboBox>
+                  <ComboBox fx:id="combo_list_name" layoutX="135.0" layoutY="205.0" prefHeight="25.0" prefWidth="129.0" promptText="Nom" style="-fx-background-color: #f99f1b;">
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </ComboBox>
+                  <Separator layoutX="20.0" layoutY="152.0" prefHeight="4.0" prefWidth="234.0" />
+                  <Separator layoutX="15.0" layoutY="263.0" prefHeight="4.0" prefWidth="234.0" />
+               </children>
+            </AnchorPane>
+            <TableView fx:id="tab_view" layoutX="311.0" layoutY="59.0" onMouseClicked="#testEtat" prefHeight="362.0" prefWidth="387.0">
+               <columns>
+                  <TableColumn fx:id="clnm5" minWidth="0.0" prefWidth="64.66668701171875" text="Id" visible="false" />
+                  <TableColumn fx:id="clnm1" prefWidth="105.0" text="Votre message" />
+                  <TableColumn fx:id="clnm2" minWidth="0.0" prefWidth="84.0" text="Etat" />
+                  <TableColumn fx:id="clnm3" prefWidth="100.0" text="Date" />
+                  <TableColumn fx:id="clnm4" minWidth="0.0" prefWidth="96.0" text="Réponse" />
+               </columns>
+            </TableView>
+            <Label fx:id="lael_txt" layoutX="63.0" layoutY="14.0" prefHeight="33.0" prefWidth="179.0" text="Espace réclamation" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="pnl_fidelite" layoutX="90.0" prefHeight="478.0" prefWidth="710.0" style="-fx-background-color: black;">
+         <children>
+            <ImageView fitHeight="478.0" fitWidth="710.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/aa.jpg" />
+               </image>
+            </ImageView>
+            <SplitPane dividerPositions="0.8036723163841808" layoutX="1.0" layoutY="-1.0" prefHeight="478.0" prefWidth="710.0">
+               <items>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fitHeight="582.0" fitWidth="804.0" layoutX="-3.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/taxi.jpg" />
+                           </image>
+                        </ImageView>
+                        <TextField fx:id="txt_email" layoutX="40.0" layoutY="132.0" prefHeight="25.0" prefWidth="177.0" promptText="e-mail" />
+                        <Button fx:id="btn_email" layoutX="232.0" layoutY="131.0" mnemonicParsing="false" onAction="#btn_email_clicked" style="-fx-background-color: #C8F674;" text="send invitation" />
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="262.0" prefWidth="259.0">
+                     <children>
+                        <ImageView fitHeight="594.0" fitWidth="762.0" layoutX="-1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/arcade.jpg" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="btn_game" layoutX="90.0" layoutY="253.0" mnemonicParsing="false" onAction="#btn_game" prefHeight="87.0" prefWidth="255.0" style="-fx-background-color: none; -fx-border-image-width: 10px; -fx-border-color: white;" text="play game" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="154.0" layoutY="352.0" text="Code Promo :" textFill="#fffefe" />
+                        <Label fx:id="lbl_code" layoutX="228.0" layoutY="352.0" text="Label" textFill="RED" />
+                        <Label layoutX="267.0" layoutY="352.0" text="Balance :" textFill="WHITE" />
+                        <Label fx:id="lbl_balance" layoutX="319.0" layoutY="351.0" text="Label" textFill="RED" />
+                        <Label fx:id="lbl_game" layoutX="13.0" layoutY="12.0" prefHeight="51.0" prefWidth="111.0" text="Game Ready" textFill="#757575">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btn_promo" layoutX="90.0" layoutY="345.0" mnemonicParsing="false" onAction="#btn_promo" prefHeight="27.0" prefWidth="59.0" style="-fx-background-color: none; -fx-border-image-width: 10px; -fx-border-color: white;" text="Promo" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+               </items>
+            </SplitPane>
+         </children>
+      </Pane>
+      <Pane fx:id="taxiep" layoutX="91.0" prefHeight="478.0" prefWidth="702.0">
+         <children>
+            <ImageView fitHeight="25.0" fitWidth="59.0" layoutX="487.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/maps.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="478.0" fitWidth="710.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/aa.jpg" />
+               </image>
+            </ImageView>
+            <Label layoutX="380.0" layoutY="178.0" prefHeight="25.0" prefWidth="130.0" text="A propos du chauffeur" textFill="#f5f2f2" />
+            <Button fx:id="trouvertaxibtn" layoutX="215.0" layoutY="118.0" mnemonicParsing="false" onAction="#handlefindtaxi" text="Trouver Taxi" />
+            <Label layoutX="45.0" layoutY="176.0" prefHeight="25.0" prefWidth="115.0" text="A propos du taxi" textFill="#fcf6f6" />
+            <ComboBox fx:id="departtaxi" layoutX="65.0" layoutY="34.0" prefHeight="35.0" prefWidth="150.0" />
+            <ComboBox fx:id="desttaxi" layoutX="305.0" layoutY="34.0" prefHeight="35.0" prefWidth="150.0" />
+            <Label fx:id="labelmatricule" layoutX="65.0" layoutY="220.0" prefHeight="17.0" prefWidth="108.0" textFill="#fcf6f6" />
+            <Label fx:id="labelmarque" layoutX="58.0" layoutY="247.0" prefHeight="17.0" prefWidth="108.0" textFill="#fff7f7" />
+            <Label fx:id="labelmodele" layoutX="65.0" layoutY="291.0" prefHeight="17.0" prefWidth="108.0" textFill="#f8f3f3" />
+            <Label fx:id="labelposition" layoutX="58.0" layoutY="328.0" prefHeight="17.0" prefWidth="89.0" textFill="#fcf6f6" />
+            <Label fx:id="la9abchauffeur" layoutX="391.0" layoutY="264.0" prefHeight="25.0" prefWidth="108.0" textFill="#fcf8f8" />
+            <Label fx:id="esmchauffeur" layoutX="380.0" layoutY="216.0" prefHeight="25.0" prefWidth="108.0" textFill="#fff8f8" />
+            <Label fx:id="numerochauffeur" layoutX="420.0" layoutY="319.0" prefHeight="35.0" prefWidth="115.0" textFill="#f5f3f3" />
+            <Button fx:id="reservtaxibtn" layoutX="452.0" layoutY="412.0" mnemonicParsing="false" onAction="#handlereservation" text="Reserver" />
+            <Button fx:id="googlempsbtn" layoutX="473.0" layoutY="39.0" minHeight="0.0" mnemonicParsing="false" onAction="#handleaffmaps" prefHeight="25.0" prefWidth="89.0" style="-fx-background-color: none;" text="       Maps" />
+         </children>
+      </Pane>
+      <Pane fx:id="cowp" layoutX="92.0" prefHeight="478.0" prefWidth="710.0" style="-fx-background-color: red;">
+         <children>
+            <ImageView fitHeight="478.0" fitWidth="710.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/aa.jpg" />
+               </image>
+            </ImageView>
+            <TextField fx:id="covdest" layoutX="453.0" layoutY="27.0" promptText="Destination" />
+            <TextField fx:id="placescov" layoutX="102.0" layoutY="81.0" promptText="Nombre de Places" />
+            <DatePicker fx:id="datecov" layoutX="449.0" layoutY="81.0" prefHeight="25.0" prefWidth="157.0" promptText="Date Co-voiturage" />
+            <Button fx:id="trouvcovbtn" layoutX="279.0" layoutY="106.0" mnemonicParsing="false" onAction="#handlerechcov" prefHeight="25.0" prefWidth="150.0" text="Trouver Co-Voiturage" />
+            <Label layoutX="101.0" layoutY="176.0" prefHeight="17.0" prefWidth="148.0" text="A propos la vehicule" textFill="#fff9f9" />
+            <Label layoutX="462.0" layoutY="176.0" prefHeight="17.0" prefWidth="130.0" text="A propos le chauffeur" textFill="#f8f1f1" />
+            <Label fx:id="vehmatricule" layoutX="102.0" layoutY="230.0" prefHeight="17.0" prefWidth="130.0" textFill="#ebe8e8" />
+            <Label fx:id="vehmarque" layoutX="111.0" layoutY="259.0" prefHeight="17.0" prefWidth="130.0" textFill="#f5f2f2" />
+            <Label fx:id="vehmodele" layoutX="102.0" layoutY="286.0" prefHeight="17.0" prefWidth="130.0" textFill="#f2ecec" />
+            <Label fx:id="vehcouleur" layoutX="112.0" layoutY="309.0" prefHeight="17.0" prefWidth="130.0" textFill="#e4e1e1" />
+            <Label fx:id="vehposition" layoutX="102.0" layoutY="334.0" prefHeight="17.0" prefWidth="130.0" textFill="#eeecec" />
+            <Label fx:id="vehdestination" layoutX="102.0" layoutY="400.0" prefHeight="17.0" prefWidth="130.0" textFill="#f2e5e5" />
+            <Label fx:id="msgerr" layoutX="154.0" layoutY="137.0" prefHeight="17.0" prefWidth="435.0" textFill="#fcf7f7" />
+            <Label fx:id="telchcov" layoutX="463.0" layoutY="351.0" prefHeight="17.0" prefWidth="130.0" textFill="#f2ebeb" />
+            <Label fx:id="nomchcov" layoutX="470.0" layoutY="249.0" prefHeight="17.0" prefWidth="130.0" textFill="#e8e0e0" />
+            <Label fx:id="prenomchcov" layoutX="463.0" layoutY="295.0" prefHeight="17.0" prefWidth="130.0" textFill="#ebe8e8" />
+            <Button fx:id="rservcovbtn" layoutX="512.0" layoutY="405.0" mnemonicParsing="false" onAction="#handlereservationcov" text="Reserver Covoiturage" />
+            <TableView fx:id="tablekraheb" layoutX="62.0" layoutY="197.0" prefHeight="200.0" prefWidth="367.0">
+               <columns>
+                  <TableColumn fx:id="colmatcov" prefWidth="73.0" text="Matricule" />
+                  <TableColumn fx:id="colmarquecov" prefWidth="69.0" text="Marque" />
+                  <TableColumn fx:id="colmodelecov" prefWidth="68.0" text="Modele" />
+                  <TableColumn fx:id="colposcov" prefWidth="68.0" text="Position" />
+                  <TableColumn fx:id="coldestcov" prefWidth="97.0" text="Destination" />
+               </columns>
+            </TableView>
+            <TableView fx:id="tablechkraheb" layoutX="427.0" layoutY="197.0" prefHeight="200.0" prefWidth="221.0">
+               <columns>
+                  <TableColumn fx:id="colnamecov" prefWidth="75.0" text="Nom" />
+                  <TableColumn fx:id="collastcov" prefWidth="75.0" text="Prenom" />
+                  <TableColumn fx:id="coltelcov" prefWidth="75.0" text="telephone" />
+               </columns>
+            </TableView>
+            <TextField fx:id="covdepart" layoutX="102.0" layoutY="27.0" promptText="Depart" />
+         </children>
+      </Pane>
+      <Pane fx:id="pnl_event" layoutX="91.0" prefHeight="478.0" prefWidth="710.0" style="-fx-background-color: none;">
+         <children>
+            <ImageView fitHeight="478.0" fitWidth="710.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/aa.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="btn_quit" layoutX="189.0" layoutY="109.0" mnemonicParsing="false" onAction="#btn_quit" prefHeight="25.0" prefWidth="271.0" style="-fx-background-color: #FA5050;" text="quit event" />
+            <ComboBox fx:id="eve_nom" layoutX="189.0" layoutY="68.0" prefHeight="25.0" prefWidth="193.0" promptText="selectionner un evennement" />
+            <Button fx:id="bnt_participer" layoutX="392.0" layoutY="68.0" mnemonicParsing="false" onAction="#btn_participer" style="-fx-background-color: #BAF44C;" text="participer" />
+            <TableView fx:id="table" layoutX="162.0" layoutY="193.0" prefHeight="171.0" prefWidth="430.0">
+               <columns>
+                  <TableColumn fx:id="col_nom" prefWidth="103.0" text="nom evenement" />
+                  <TableColumn fx:id="col_date" prefWidth="100.0" text="date" />
+                  <TableColumn fx:id="col_duree" prefWidth="59.0" text="duree" />
+                  <TableColumn fx:id="col_emplacement" prefWidth="100.0" text="emplacement" />
+                  <TableColumn fx:id="col_capacite" prefWidth="77.0" text="capacite" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

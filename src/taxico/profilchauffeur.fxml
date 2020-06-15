@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="taxico.ProfilchauffeurController">
+   <children>
+      <AnchorPane layoutX="3.0" layoutY="3.0" prefHeight="400.0" prefWidth="168.0">
+         <children>
+            <Button fx:id="afficherbtn" layoutX="8.0" layoutY="241.0" mnemonicParsing="false" onAction="#handleafficher" prefHeight="25.0" prefWidth="134.0" text="Desactiver" />
+            <Button fx:id="modifierbtn" layoutX="16.0" layoutY="101.0" mnemonicParsing="false" onAction="#handlemodifier" prefHeight="25.0" prefWidth="134.0" text="Modifier" />
+            <Button fx:id="modifierpdpbtn" layoutX="14.0" layoutY="175.0" mnemonicParsing="false" onAction="#handlepdp" prefHeight="25.0" prefWidth="134.0" text="modifier photo" />
+            <Button fx:id="desactiverbtn" layoutX="14.0" layoutY="39.0" mnemonicParsing="false" onAction="#handledesactiver" prefHeight="25.0" prefWidth="134.0" text="Profil" />
+            <Button fx:id="retour" layoutX="8.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleretour" text="Retour" />
+            <Button fx:id="decnx" layoutX="75.0" layoutY="361.0" mnemonicParsing="false" onAction="#handledecnx" text="Deconnexion" />
+         </children>
+      </AnchorPane>
+      <Pane fx:id="modifp" layoutX="171.0" layoutY="3.0" prefHeight="410.0" prefWidth="479.0" style="-fx-background-color: #36324D;">
+         <children>
+            <Label layoutX="38.0" layoutY="140.0" text="Date de naissance" textFill="#fff6f6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="100.0" text="NUMERO DE TELEPHONE" textFill="#fcf8f8">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="38.0" layoutY="64.0" text="PRENOM" textFill="#f8f8f8">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="40.0" layoutY="31.0" prefHeight="27.0" prefWidth="47.0" text="NOM" textFill="#f8f4f4">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="nom" layoutX="292.0" layoutY="32.0" />
+            <TextField fx:id="prenom" layoutX="292.0" layoutY="65.0" />
+            <TextField fx:id="tel" layoutX="292.0" layoutY="101.0" />
+            <Button fx:id="modifier" layoutX="151.0" layoutY="364.0" mnemonicParsing="false" onAction="#handlemodifbtn" prefHeight="32.0" prefWidth="178.0" text="Modifier" />
+            <DatePicker fx:id="datenaiss" layoutX="292.0" layoutY="141.0" prefHeight="25.0" prefWidth="149.0" />
+            <Label layoutX="40.0" layoutY="184.0" text="CIN" textFill="#f2f2f2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="39.0" layoutY="224.0" text="PERMIS" textFill="#fffefe">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="36.0" layoutY="264.0" text="NOM COMPTE BANCAIRE" textFill="#fffefe">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="36.0" layoutY="304.0" text="RIB COMPTE BANCAIRE" textFill="#fcf8f8">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="cin" layoutX="292.0" layoutY="185.0" />
+            <TextField fx:id="permis" layoutX="292.0" layoutY="225.0" />
+            <TextField fx:id="compte" layoutX="292.0" layoutY="265.0" />
+            <TextField fx:id="rib" layoutX="292.0" layoutY="305.0" />
+         </children>
+      </Pane>
+      <Pane fx:id="pdpp" layoutX="171.0" layoutY="3.0" prefHeight="410.0" prefWidth="479.0" style="-fx-background-color: #36324D;">
+         <children>
+            <ImageView fx:id="picture" fitHeight="220.0" fitWidth="217.0" layoutX="131.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="mpdpbtn" layoutX="179.0" layoutY="327.0" mnemonicParsing="false" onAction="#handlepdpbtn" prefHeight="41.0" prefWidth="122.0" text="Modifier pdp" />
+         </children>
+      </Pane>
+      <Pane fx:id="affp" layoutX="171.0" layoutY="4.0" prefHeight="410.0" prefWidth="485.0" style="-fx-background-color: #36324D;">
+         <children>
+            <Button fx:id="desbtn" layoutX="161.0" layoutY="226.0" mnemonicParsing="false" onAction="#handledesactiverbtn" prefHeight="67.0" prefWidth="194.0" text="Desactiver" />
+            <TextField fx:id="textmail" layoutX="184.0" layoutY="93.0" promptText="Mail" />
+            <PasswordField fx:id="textmdp" layoutX="184.0" layoutY="160.0" promptText="Mot De Passe" />
+         </children>
+      </Pane>
+      <Pane fx:id="desp" layoutX="171.0" layoutY="3.0" prefHeight="410.0" prefWidth="485.0" style="-fx-background-color: #36324D;">
+         <children>
+            <Label layoutX="11.0" layoutY="261.0" text="Date de naissance" textFill="#fffafa">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="303.0" prefHeight="27.0" prefWidth="143.0" text="Date de Creation" textFill="#fffafa">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelcreate" layoutX="160.0" layoutY="301.0" prefHeight="32.0" prefWidth="106.0" textFill="#fffafa" />
+            <ImageView fx:id="photo" fitHeight="105.0" fitWidth="96.0" layoutX="11.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/chauffeur.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="labeltel" layoutX="218.0" layoutY="222.0" prefHeight="25.0" prefWidth="96.0" textFill="#fffafa" />
+            <Label fx:id="labelnaiss" layoutX="160.0" layoutY="259.0" prefHeight="32.0" prefWidth="96.0" textFill="#fffafa" />
+            <Label fx:id="labelprenom" layoutX="90.0" layoutY="183.0" prefHeight="32.0" prefWidth="92.0" textFill="#fffafa" />
+            <Label fx:id="labelnom" layoutX="67.0" layoutY="152.0" prefHeight="27.0" prefWidth="81.0" textFill="#fffafa" />
+            <Label layoutX="11.0" layoutY="221.0" text="NUMERO DE TELEPHONE" textFill="#fffafa">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="11.0" layoutY="185.0" text="PRENOM" textFill="#fffafa">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="152.0" prefHeight="27.0" prefWidth="47.0" text="NOM" textFill="#fffafa">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelnbrcourse" layoutX="172.0" layoutY="345.0" prefHeight="27.0" prefWidth="73.0" textFill="#fffafa" />
+            <Label layoutX="13.0" layoutY="345.0" prefHeight="27.0" prefWidth="153.0" text="Nombre de course" textFill="#fffafa">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="editbtn" layoutX="407.0" layoutY="372.0" mnemonicParsing="false" onAction="#handleedit" text="edit" textFill="#030303" />
+            <Label layoutX="256.0" layoutY="23.0" prefHeight="27.0" prefWidth="47.0" text="CIN" textFill="#fffafa">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelcin" layoutX="303.0" layoutY="21.0" prefHeight="32.0" prefWidth="106.0" textFill="#fffafa" />
+            <Label layoutX="256.0" layoutY="63.0" prefHeight="25.0" prefWidth="47.0" text="PERMIS" textFill="#fffafa" />
+            <Label fx:id="labelpermis" layoutX="333.0" layoutY="59.0" prefHeight="32.0" prefWidth="92.0" textFill="#fffafa" />
+            <Label layoutX="256.0" layoutY="119.0" text="NOM COMPTE" textFill="#fffafa" />
+            <Label fx:id="labelncompte" layoutX="361.0" layoutY="114.0" prefHeight="27.0" prefWidth="96.0" textFill="#fffafa" />
+            <Label layoutX="256.0" layoutY="171.0" text="RIB COMPTE" textFill="#fffafa" />
+            <Label fx:id="labelrib" layoutX="369.0" layoutY="163.0" prefHeight="32.0" prefWidth="81.0" textFill="#fffafa" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

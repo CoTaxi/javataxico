@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #36324D;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="taxico.SignupController">
+   <children>
+      <Label layoutX="25.0" layoutY="45.0" text="Sign up form" textFill="#f8f1f1" />
+      <TextField fx:id="txt_nom" layoutX="156.0" layoutY="63.0" promptText="nom" />
+      <TextField fx:id="txt_prenom" layoutX="156.0" layoutY="107.0" promptText="prenom" />
+      <TextField fx:id="txt_tel" layoutX="156.0" layoutY="146.0" promptText="tel" />
+      <TextField fx:id="txt_email" layoutX="156.0" layoutY="190.0" promptText="mail" />
+      <TextField fx:id="txt_mdp" layoutX="156.0" layoutY="269.0" promptText="mot de passe" />
+      <CheckBox fx:id="ck_chaufeur" layoutX="156.0" layoutY="313.0" mnemonicParsing="false" onAction="#chk_chuffeur" text="chauffeur" textFill="#fffdfd" />
+      <DatePicker fx:id="txt_naissance" layoutX="156.0" layoutY="230.0" prefHeight="25.0" prefWidth="149.0" promptText="date de naissance" />
+      <Button fx:id="btn_sign" layoutX="413.0" layoutY="330.0" mnemonicParsing="false" onAction="#btn_sign" prefHeight="25.0" prefWidth="163.0" text="Creer Compte" textFill="#0d0d0d" />
+      <TextField fx:id="txt_cin" layoutX="404.0" layoutY="63.0" promptText="Cin" />
+      <TextField fx:id="txt_permis" layoutX="403.0" layoutY="107.0" promptText="permis" />
+      <TextField fx:id="txt_nomcompte" layoutX="403.0" layoutY="146.0" promptText="nom_compte" />
+      <TextField fx:id="txt_rib" layoutX="403.0" layoutY="190.0" promptText="rib" />
+      <TextField fx:id="txt_experience" layoutX="403.0" layoutY="230.0" promptText="experience" />
+   </children>
+</AnchorPane>

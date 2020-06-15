@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="535.0" prefWidth="694.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="taxico.BackadminController">
+   <children>
+      <ImageView fx:id="background" fitHeight="525.0" fitWidth="624.0" layoutX="86.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="logout" fitHeight="32.0" fitWidth="39.0" layoutX="648.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="620.0" layoutY="56.0" prefHeight="16.0" prefWidth="56.0" text="Déconnexion" textFill="#fffbfb">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="80.0" layoutY="450.0" prefHeight="85.0" prefWidth="690.0" style="-fx-background-color: #36324D;">
+         <children>
+            <Circle fill="#302e41" layoutX="79.0" layoutY="37.0" radius="24.0" stroke="#b2aeae" strokeType="INSIDE" />
+            <ImageView fx:id="userback" fitHeight="32.0" fitWidth="35.0" layoutX="63.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/user.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="110.0" layoutY="41.0" text="Gérer user" textFill="#eae7e7">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Circle fill="#36324d" layoutX="257.0" layoutY="39.0" radius="24.0" stroke="#d2bebe" strokeType="INSIDE" />
+            <ImageView fx:id="commande" fitHeight="32.0" fitWidth="39.0" layoutX="237.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/commande.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="287.0" layoutY="41.0" text="Gérer Commande" textFill="#e8e6e6">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Circle fill="#36324d" layoutX="438.0" layoutY="37.0" radius="23.0" stroke="#c5c5c5" strokeType="INSIDE" />
+            <ImageView fx:id="fidelite_back" fitHeight="32.0" fitWidth="32.0" layoutX="422.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/loyalty.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="464.0" layoutY="42.0" text="Gérer Fidelité" textFill="WHITE">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Button layoutX="53.0" layoutY="12.0" mnemonicParsing="false" onAction="#btn_usr" prefHeight="60.0" prefWidth="52.0" style="-fx-background-color: none;" />
+            <Button layoutX="231.0" layoutY="16.0" mnemonicParsing="false" onAction="#btn_com" prefHeight="60.0" prefWidth="56.0" style="-fx-background-color: none;" />
+            <Button layoutX="408.0" layoutY="13.0" mnemonicParsing="false" onAction="#btn_fid" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: none;" />
+            <Button layoutX="570.0" layoutY="39.0" mnemonicParsing="false" onAction="#btn_coli" style="-fx-background-color: none;" text="Gerer Colis" textFill="#f5f2f2" />
+            <Circle fill="#36324d" layoutX="554.0" layoutY="31.0" radius="23.0" stroke="#c5c5c5" strokeType="INSIDE" />
+            <ImageView fx:id="fidelite_back1" fitHeight="25.0" fitWidth="35.0" layoutX="538.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/courrier.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <Pane layoutX="80.0" prefHeight="452.0" prefWidth="630.0">
+         <children>
+            <AnchorPane layoutX="21.0" layoutY="9.0" prefHeight="435.0" prefWidth="210.0">
+               <children>
+                  <Label fx:id="lbl_etat" layoutX="8.0" layoutY="247.0" text="Etat : " textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="comboEtat" layoutX="50.0" layoutY="244.0" prefHeight="25.0" prefWidth="157.0" promptText="Changer l'état" style="-fx-background-color: #f99f1b;">
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </ComboBox>
+                  <TextArea fx:id="txt_repAdmin" layoutX="5.0" layoutY="7.0" prefHeight="201.0" prefWidth="180.0" promptText="Votre réponse ici..." />
+                  <Button fx:id="DelAdmin_btn" layoutX="12.0" layoutY="325.0" mnemonicParsing="false" onAction="#btn_deleteRecAdmin" prefHeight="23.0" prefWidth="60.0" style="-fx-background-color: #f99f1b;" text="Supprimer">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <Separator layoutX="12.0" layoutY="216.0" prefHeight="4.0" prefWidth="180.0" />
+                  <Separator layoutX="12.0" layoutY="292.0" prefHeight="4.0" prefWidth="180.0" />
+                  <Button fx:id="editAdmin_btn" layoutX="159.0" layoutY="325.0" mnemonicParsing="false" onAction="#editerRepAdmin" style="-fx-background-color: #f99f1b;" text="Modifier">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="saveAdmin_btn" layoutX="81.0" layoutY="325.0" mnemonicParsing="false" onAction="#btn_saveEditAdmin" style="-fx-background-color: #f99f1b;" text="Enregistrer">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="mail_btn" layoutX="88.0" layoutY="368.0" mnemonicParsing="false" onAction="#sendEmail" style="-fx-background-color: #f99f1b;" text="Envoyer Email">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btn_archive" layoutX="66.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleArchive" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #f99f1b;" text="Afficher Archive" />
+               </children>
+            </AnchorPane>
+            <Button fx:id="imp_btn" layoutX="414.0" layoutY="2.0" mnemonicParsing="false" onAction="#btn_convertirPDF" prefHeight="25.0" prefWidth="202.0" style="-fx-background-color: #f99f1b;" text="Imprimer réclamations">
+               <effect>
+                  <Glow />
+               </effect>
+            </Button>
+            <TableView fx:id="tab_admin" layoutX="231.0" layoutY="33.0" onMouseClicked="#onselectedTab" prefHeight="412.0" prefWidth="382.0">
+               <columns>
+                  <TableColumn fx:id="id_admin" prefWidth="42.666717529296875" text="ID" visible="false" />
+                  <TableColumn fx:id="msg_admin" prefWidth="66.0" text="Message" />
+                  <TableColumn fx:id="etat_admin" prefWidth="57.0" text="Etat" />
+                  <TableColumn fx:id="date_admin" prefWidth="79.0" text="Date Réclamation" />
+                  <TableColumn fx:id="rep_admin" prefWidth="77.0" text="Réponse admin" />
+                  <TableColumn fx:id="mat" prefWidth="97.0" text="Prénom &amp; Nom" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane fx:id="archivep" layoutX="90.0" prefHeight="452.0" prefWidth="624.0" style="-fx-background-color: black;">
+         <children>
+            <TextField fx:id="txt_arch" layoutX="34.0" layoutY="21.0" prefHeight="25.0" prefWidth="307.0" promptText="Chercher votre archive..." />
+            <TableView fx:id="tab_arch" layoutX="34.0" layoutY="50.0" prefHeight="366.0" prefWidth="578.0">
+               <columns>
+                  <TableColumn fx:id="id_arch" prefWidth="54.6666898727417" text="ID" visible="false" />
+                  <TableColumn fx:id="msg_arch" prefWidth="81.0" text="Message" />
+                  <TableColumn fx:id="etat_arch" prefWidth="114.0" text="Etat" />
+                  <TableColumn fx:id="date_arch" prefWidth="144.0" text="Date de réclamation" />
+                  <TableColumn fx:id="rep_arch" minWidth="6.0" prefWidth="115.0" text="Réponse admin" />
+                  <TableColumn fx:id="pre_arch" prefWidth="119.0" text="Prénom &amp; Nom" />
+               </columns>
+            </TableView>
+            <Button fx:id="btn_arch" layoutX="407.0" layoutY="416.0" mnemonicParsing="false" onAction="#handleAdmin" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #f99f1b;" text="Gérer tous les réclamations" />
+         </children>
+      </Pane>
+      <Pane fx:id="pnl_stat" layoutX="88.0" prefHeight="452.0" prefWidth="630.0" style="-fx-background-color: white;">
+         <children>
+            <Button fx:id="stat_event1" mnemonicParsing="false" onAction="#stat_event1" prefHeight="60.0" prefWidth="264.0" style="-fx-background-color: none; -fx-border-image-width: 20px; -fx-border-color: black;" text="Emplacement des evennement">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="userp" layoutX="86.0" layoutY="10.0" prefHeight="440.0" prefWidth="624.0" style="-fx-background-color: purple;">
+         <children>
+            <Accordion layoutX="8.0" layoutY="14.0" prefHeight="425.0" prefWidth="569.0">
+               <panes>
+                  <TitledPane fx:id="listecl" animated="false" onMouseClicked="#handleaffichcl" text="Liste Des Clients">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tablecl" prefHeight="349.0" prefWidth="569.0">
+                                 <columns>
+                                    <TableColumn fx:id="secondnom" prefWidth="39.0" text="nom" />
+                                    <TableColumn fx:id="secondprenom" prefWidth="57.0" text="prenom" />
+                                    <TableColumn fx:id="secondtel" prefWidth="46.0" text="tel" />
+                                    <TableColumn fx:id="secondmail" prefWidth="67.0" text="mail" />
+                                    <TableColumn fx:id="secondnaissance" prefWidth="104.0" text="naissance" />
+                                    <TableColumn fx:id="secondcreation" prefWidth="109.0" text="creation" />
+                                    <TableColumn fx:id="secondactive" prefWidth="48.0" text="active" />
+                                    <TableColumn fx:id="secondcourse" prefWidth="97.0" text="nombre course" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane fx:id="listech" animated="false" onMouseClicked="#handleaffichch" text="Liste Des Chauffeurs">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tablech" prefHeight="349.0" prefWidth="569.0">
+                                 <columns>
+                                    <TableColumn fx:id="nom" prefWidth="32.0" text="nom" />
+                                    <TableColumn fx:id="prenom" prefWidth="52.0" text="prenom" />
+                                    <TableColumn fx:id="tel" prefWidth="26.0" text="tel" />
+                                    <TableColumn fx:id="mail" prefWidth="38.0" text="mail" />
+                                    <TableColumn fx:id="naissance" prefWidth="38.0" text="naissance" />
+                                    <TableColumn fx:id="creation" prefWidth="38.0" text="creation" />
+                                    <TableColumn fx:id="active" prefWidth="38.0" text="active" />
+                                    <TableColumn fx:id="cin" prefWidth="35.0" text="cin" />
+                                    <TableColumn fx:id="nomc" prefWidth="59.0" text="nom compte" />
+                                    <TableColumn fx:id="ribc" prefWidth="67.0" text="rib compte" />
+                                    <TableColumn fx:id="experience" prefWidth="64.0" text="experience" />
+                                    <TableColumn fx:id="nbrcourse" prefWidth="81.0" text="nombre course" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+               </panes>
+            </Accordion>
+            <ComboBox fx:id="tribox" layoutX="415.0" layoutY="404.0" onAction="#handletrierchauff" prefWidth="150.0" promptText="Trier par .." />
+            <TextField fx:id="searchfield" layoutX="238.0" layoutY="406.0" promptText="chercher" />
+            <CheckBox fx:id="checkifactive" layoutX="21.0" layoutY="388.0" mnemonicParsing="false" onAction="#handlefiltreactive" text="Active" textFill="#fcf9f9" />
+            <CheckBox fx:id="checkifarchive" layoutX="21.0" layoutY="416.0" mnemonicParsing="false" onAction="#handlefiltrearchive" text="Archive" textFill="#fcfafa" />
+         </children>
+      </Pane>
+      <Pane fx:id="pane_Maintenance" layoutX="83.0" prefHeight="452.0" prefWidth="624.0" style="-fx-background-color: white;">
+         <children>
+            <TabPane prefHeight="452.0" prefWidth="595.0" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab text="Rendez vous">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="334.0" prefWidth="515.0">
+                           <children>
+                              <TableView fx:id="tableView" layoutX="28.0" layoutY="39.0" onMouseClicked="#SetBtnRdv" prefHeight="200.0" prefWidth="484.0">
+                                 <columns>
+                                    <TableColumn fx:id="id_rdvColumn" prefWidth="90.0" text="id_rdv" visible="false" />
+                                    <TableColumn fx:id="id_chauffeurColumn" prefWidth="85.0" text="id_chauffeur" />
+                                    <TableColumn fx:id="date_rdvColumn" minWidth="0.0" prefWidth="95.0" text="date_rdv" />
+                                    <TableColumn fx:id="name_garageColumn" prefWidth="90.0" text="Name_Garage" />
+                                    <TableColumn fx:id="name_serviceColumn" prefWidth="90.0" text="Name_Service" />
+                                    <TableColumn fx:id="statusColumn" onEditCommit="#changeStatusCellEvent2" prefWidth="123.0" text="status" />
+                                 </columns>
+                              </TableView>
+                              <DatePicker fx:id="date_rdvTextField" layoutX="354.0" layoutY="262.0" promptText="date_rdv" />
+                              <Button layoutX="163.0" layoutY="308.0" mnemonicParsing="false" onAction="#addButton" style="-fx-background-radius: 7em;" text="Add Rendez vous" />
+                              <Button fx:id="RemoveBtnRdv" layoutX="343.0" layoutY="308.0" mnemonicParsing="false" onAction="#RemoveButton" onMouseClicked="#SetBtnRdv" style="-fx-background-radius: 7em;" text="Remove Rendez vous" />
+                              <Button layoutX="422.0" layoutY="8.0" mnemonicParsing="false" onAction="#createPDFRdv" style="-fx-background-radius: 7em;" text="Generate PDF" />
+                              <ComboBox fx:id="ServiceCombo" layoutX="14.0" layoutY="262.0" onAction="#SelectedComboBoxService" prefWidth="150.0" promptText="Select Service" style="-fx-background-radius: 7em;" />
+                              <ComboBox fx:id="GarageCombo" layoutX="181.0" layoutY="262.0" prefWidth="150.0" promptText="Select Garge" style="-fx-background-radius: 7em;" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Garage">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="409.0" prefWidth="544.0">
+                           <children>
+                              <TableView fx:id="tableViewGarage" layoutX="54.0" layoutY="57.0" onMouseClicked="#SetBtnGarage" prefHeight="200.0" prefWidth="435.0">
+                                 <columns>
+                                    <TableColumn fx:id="id_garageColumnG" prefWidth="95.0" text="id_garage" visible="false" />
+                                    <TableColumn fx:id="nameColumnG" onEditCommit="#changeNameCellEventG" prefWidth="95.0" text="name" />
+                                    <TableColumn fx:id="addressColumn" onEditCommit="#changeAddressCellEvent" prefWidth="155.0" text="address" />
+                                    <TableColumn fx:id="name_serviceColumnG" prefWidth="95.0" text="Name_Service" />
+                                 </columns>
+                              </TableView>
+                              <TextField fx:id="addressTextField" layoutX="197.0" layoutY="278.0" promptText="address" style="-fx-background-radius: 7em;" />
+                              <TextField fx:id="nameTextFieldG" layoutX="32.0" layoutY="278.0" promptText="name" style="-fx-background-radius: 7em;" />
+                              <Button layoutX="117.0" layoutY="317.0" mnemonicParsing="false" onAction="#addButtonGarage" style="-fx-background-radius: 7em;" text="Add Garage" />
+                              <Button fx:id="RemoveBtnGarage" layoutX="265.0" layoutY="317.0" mnemonicParsing="false" onAction="#RemoveButtonGarage" style="-fx-background-radius: 7em;" text="Remove Garage" />
+                              <Button layoutX="399.0" layoutY="24.0" mnemonicParsing="false" onAction="#createPDFGarage" style="-fx-background-radius: 7em;" text="Generate PDF" />
+                              <ComboBox fx:id="ServiceComboG" layoutX="369.0" layoutY="278.0" prefWidth="150.0" promptText="Select Service" style="-fx-background-radius: 7em;" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Service">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="434.0" prefWidth="569.0">
+                           <children>
+                              <TableView fx:id="tableViewService" layoutX="28.0" layoutY="61.0" onMouseClicked="#SetBtnService" prefHeight="261.0" prefWidth="178.0">
+                                 <columns>
+                                    <TableColumn fx:id="id_serviceColumnS" prefWidth="90.0" text="id_service" />
+                                    <TableColumn fx:id="nameColumnS" onEditCommit="#changeNameCellEventS" prefWidth="86.0" text="name" />
+                                 </columns>
+                              </TableView>
+                              <Button layoutX="28.0" layoutY="329.0" mnemonicParsing="false" onAction="#createPDF" style="-fx-background-radius: 7em;" text="Generate PDF" />
+                              <Button layoutX="267.0" layoutY="145.0" mnemonicParsing="false" onAction="#addButtonService" style="-fx-background-radius: 7em;" text="Add Service" />
+                              <Button fx:id="RemoveBtnService" layoutX="360.0" layoutY="145.0" mnemonicParsing="false" onAction="#RemoveButtonService" style="-fx-background-radius: 7em;" text="Remove" />
+                              <TextField fx:id="nameTextFieldS" layoutX="267.0" layoutY="96.0" prefHeight="25.0" prefWidth="152.0" promptText="name" style="-fx-background-radius: 7em;" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+         </children>
+      </Pane>
+      <AnchorPane layoutX="2.0" prefHeight="535.0" prefWidth="84.0" style="-fx-background-color: #36324D;">
+         <children>
+            <Circle fill="#36324d" layoutX="37.0" layoutY="263.0" radius="24.0" smooth="false" stroke="#978e8e" strokeType="INSIDE" />
+            <Circle fill="#36324d" layoutX="37.0" layoutY="352.0" radius="24.0" stroke="#aa9999" strokeType="INSIDE" />
+            <Label layoutX="20.0" layoutY="197.0" prefHeight="18.0" prefWidth="56.0" text="Contrat" />
+            <Label layoutX="3.0" layoutY="292.0" text="Maintenance" />
+            <Label layoutX="6.0" layoutY="386.0" text="Réclamation" />
+            <Circle fill="#36324d" layoutX="39.0" layoutY="445.0" radius="24.0" stroke="#9f9797" strokeType="INSIDE" />
+            <Circle fill="#f99f1b" layoutX="38.0" layoutY="34.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label layoutX="17.0" layoutY="206.0" prefHeight="18.0" prefWidth="40.0" text="Contrat" textFill="WHITE">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label layoutX="5.0" layoutY="300.0" prefHeight="18.0" prefWidth="66.0" text="Maintenance" textFill="#f8f8f8">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="383.0" prefHeight="18.0" prefWidth="56.0" text="Réclamation" textFill="WHITE">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label layoutX="7.0" layoutY="478.0" text="Evenement" textFill="#fdfcfc">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="64.0" text="Admin" textFill="WHITE" />
+            <Button fx:id="btncontrat" layoutX="8.0" layoutY="149.0" mnemonicParsing="false" onAction="#pane_ajouter_contrat" prefHeight="60.0" prefWidth="62.0" style="-fx-background-color: none;" text="Button" />
+            <Button layoutX="5.0" layoutY="232.0" mnemonicParsing="false" onAction="#btn_main" prefHeight="67.0" prefWidth="86.0" style="-fx-background-color: none;" AnchorPane.bottomAnchor="236.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="232.0" />
+            <Button fx:id="btnrec" layoutX="11.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleadminrec" prefHeight="60.0" prefWidth="52.0" style="-fx-background-color: none;" text="Button" />
+            <ImageView fx:id="admin" fitHeight="39.0" fitWidth="39.0" layoutX="17.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/admin.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="reclamation" fitHeight="39.0" fitWidth="39.0" layoutX="19.0" layoutY="333.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/reclamation.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="maintenance" fitHeight="39.0" fitWidth="48.0" layoutX="18.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/maintenance2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="contrat" fitHeight="48.0" fitWidth="48.0" layoutX="13.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/contrat.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="eventback" fitHeight="39.0" fitWidth="39.0" layoutX="19.0" layoutY="425.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/event.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="12.0" layoutY="419.0" mnemonicParsing="false" onAction="#btn_event" prefHeight="60.0" prefWidth="60.0" style="-fx-background-color: none;" />
+         </children>
+      </AnchorPane>
+      <Pane fx:id="bgp" layoutX="86.0" layoutY="10.0" prefHeight="440.0" prefWidth="605.0">
+         <children>
+            <ImageView fitHeight="440.0" fitWidth="595.0" layoutX="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/taxibaack.jpg" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="Reclamationp" layoutX="85.0" prefHeight="452.0" prefWidth="624.0" style="-fx-background-color: black;">
+         <children>
+            <ImageView fitHeight="452.0" fitWidth="688.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/aa.jpg" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="14.0" layoutY="45.0" prefHeight="435.0" prefWidth="251.0">
+               <children>
+                  <Label fx:id="lbl_etat1" layoutX="8.0" layoutY="247.0" text="Etat : " textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="comboEtat1" layoutX="50.0" layoutY="244.0" prefHeight="25.0" prefWidth="193.0" promptText="Changer l'état" style="-fx-background-color: #f99f1b;">
+                     <effect>
+                        <Glow />
+                     </effect>
+                  </ComboBox>
+                  <TextArea fx:id="txt_repAdmin1" layoutX="5.0" layoutY="7.0" prefHeight="201.0" prefWidth="241.0" promptText="Votre réponse ici..." />
+                  <Button fx:id="DelAdmin_btn1" layoutX="12.0" layoutY="325.0" mnemonicParsing="false" onAction="#btn_deleteRecAdmin" prefHeight="23.0" prefWidth="60.0" style="-fx-background-color: #f99f1b;" text="Supprimer">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <Separator layoutX="12.0" layoutY="216.0" prefHeight="4.0" prefWidth="227.0" />
+                  <Separator layoutX="12.0" layoutY="292.0" prefHeight="4.0" prefWidth="227.0" />
+                  <Button fx:id="editAdmin_btn1" layoutX="185.0" layoutY="325.0" mnemonicParsing="false" onAction="#editerRepAdmin" style="-fx-background-color: #f99f1b;" text="Modifier">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="saveAdmin_btn1" layoutX="95.0" layoutY="325.0" mnemonicParsing="false" onAction="#btn_saveEditAdmin" style="-fx-background-color: #f99f1b;" text="Enregistrer">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="mail_btn1" layoutX="12.0" layoutY="369.0" mnemonicParsing="false" onAction="#sendEmail" style="-fx-background-color: #f99f1b;" text="Envoyer Email">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btn_archive1" layoutX="110.0" layoutY="368.0" mnemonicParsing="false" onAction="#handleArchive" prefHeight="25.0" prefWidth="119.0" style="-fx-background-color: #f99f1b;" text="Afficher Archive" />
+               </children>
+            </AnchorPane>
+            <TableView fx:id="tab_admin1" layoutX="280.0" layoutY="52.0" onMouseClicked="#onselectedTab" prefHeight="392.0" prefWidth="340.0">
+               <columns>
+                  <TableColumn fx:id="id_admin1" prefWidth="42.666717529296875" text="ID" visible="false" />
+                  <TableColumn fx:id="msg_admin1" prefWidth="98.0" text="Message" />
+                  <TableColumn fx:id="etat_admin1" prefWidth="64.0" text="Etat" />
+                  <TableColumn fx:id="date_admin1" prefWidth="76.0" text="Date Réclamation" />
+                  <TableColumn fx:id="rep_admin1" prefWidth="54.0" text="Réponse admin" />
+                  <TableColumn fx:id="mat1" prefWidth="89.0" text="Prénom &amp; Nom" />
+               </columns>
+            </TableView>
+            <Button fx:id="imp_btn1" layoutX="314.0" layoutY="14.0" mnemonicParsing="false" onAction="#btn_convertirPDF" prefHeight="25.0" prefWidth="202.0" style="-fx-background-color: #f99f1b;" text="Imprimer réclamations">
+               <effect>
+                  <Glow />
+               </effect>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="consulter_contrat_pane" layoutX="89.0" layoutY="-2.0" prefHeight="452.0" prefWidth="605.0">
+         <children>
+            <ImageView fitHeight="456.0" fitWidth="686.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/aa.jpg" />
+               </image>
+            </ImageView>
+            <TableView fx:id="tablec" layoutX="31.0" layoutY="16.0" prefHeight="380.0" prefWidth="558.0">
+               <columns>
+                  <TableColumn fx:id="col_nom" prefWidth="75.0" text="Nom" />
+                  <TableColumn fx:id="col_prenom" prefWidth="104.0" text="Prenom" />
+                  <TableColumn fx:id="col_cin" prefWidth="73.5999755859375" text="Cin" />
+                  <TableColumn fx:id="col_type" prefWidth="179.20001220703125" text="Type Contrat" />
+                  <TableColumn fx:id="col_duree" prefWidth="166.4000244140625" text="Duree" />
+               </columns>
+            </TableView>
+            <Button layoutX="445.0" layoutY="401.0" mnemonicParsing="false" onAction="#consulter_contrat_paneBack" text="Retour" />
+            <Button fx:id="supprimer" layoutX="519.0" layoutY="401.0" mnemonicParsing="false" onAction="#supprimer_contrat" text="supprimer" />
+         </children>
+      </Pane>
+      <Pane fx:id="ajouter_contrat_pane" layoutX="199.0" layoutY="39.0" prefHeight="366.0" prefWidth="370.0" style="-fx-background-color: #36324D;">
+         <children>
+            <ComboBox fx:id="combo" layoutX="112.0" layoutY="26.0" prefWidth="150.0" />
+            <Button fx:id="btn_val" layoutX="300.0" layoutY="28.0" mnemonicParsing="false" onAction="#valider" text="Valider" />
+            <Label layoutX="14.0" layoutY="32.0" text="Cin:" textFill="#f8f7f7" />
+            <ComboBox fx:id="type_c" layoutX="112.0" layoutY="127.0" prefWidth="150.0" promptText="Type de Contrat" />
+            <TextField fx:id="duree" alignment="TOP_CENTER" layoutX="112.0" layoutY="204.0" prefHeight="26.0" prefWidth="135.0" promptText="Durée" />
+            <Label layoutX="249.0" layoutY="209.0" text="mois" textFill="#fffefe" />
+            <Button layoutX="161.0" layoutY="299.0" mnemonicParsing="false" onAction="#ajouter_contrat" text="Ajouter" />
+            <Button layoutX="274.0" layoutY="299.0" mnemonicParsing="false" onAction="#consulter_contrat_pane" text="Consulter" />
+         </children>
+      </Pane>
+      <Pane fx:id="pnl_fidelite" layoutX="89.0" prefHeight="452.0" prefWidth="630.0" style="-fx-background-color: pink;">
+         <children>
+            <ImageView fitHeight="452.0" fitWidth="684.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/aa.jpg" />
+               </image>
+            </ImageView>
+            <TableView fx:id="tab_fidelite" layoutX="71.0" layoutY="217.0" prefHeight="168.0" prefWidth="515.0">
+               <columns>
+                  <TableColumn fx:id="nom_client" prefWidth="261.0" text="client" />
+                  <TableColumn fx:id="point_fidelite" prefWidth="254.0" text="points" />
+               </columns>
+            </TableView>
+            <TextField fx:id="txt_points" layoutX="71.0" layoutY="168.0" prefHeight="25.0" prefWidth="142.0" promptText="points fidelite" />
+            <Button fx:id="btn_points" layoutX="225.0" layoutY="168.0" mnemonicParsing="false" onAction="#btn_points" style="-fx-background-color: #BAF44C;" text="valider" />
+            <Label layoutX="51.0" layoutY="22.0" text="nombre des invitation :">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="nbr_inv" layoutX="189.0" layoutY="22.0" prefHeight="17.0" prefWidth="48.0" text="Label" textFill="#0a0000" />
+         </children>
+      </Pane>
+      <Pane fx:id="pnl_event" layoutX="89.0" prefHeight="452.0" prefWidth="630.0" style="-fx-background-color: black;">
+         <children>
+            <ImageView fitHeight="474.0" fitWidth="678.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/aa.jpg" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txt_nom" layoutX="59.0" layoutY="3.0" prefHeight="25.0" prefWidth="168.0" promptText="nom evennement" />
+            <DatePicker fx:id="txt_date" layoutX="59.0" layoutY="42.0" prefHeight="25.0" prefWidth="168.0" promptText="date de debut" />
+            <TextField fx:id="dureejdida" layoutX="59.0" layoutY="84.0" prefHeight="25.0" prefWidth="168.0" promptText="duree" />
+            <Button fx:id="btn_add" layoutX="157.0" layoutY="212.0" mnemonicParsing="false" onAction="#btn_add" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #BAF44C;" text="ajouter" />
+            <TableView fx:id="table" editable="true" layoutX="25.0" layoutY="250.0" prefHeight="200.0" prefWidth="597.0">
+               <columns>
+                  <TableColumn fx:id="col_nomev" prefWidth="156.0" text="nom" />
+                  <TableColumn fx:id="col_date" prefWidth="148.0" text="date" />
+                  <TableColumn fx:id="col_dureeev" prefWidth="71.0" text="duree" />
+                  <TableColumn fx:id="col_emplacement" prefWidth="105.0" text="emplacement" />
+                  <TableColumn fx:id="col_capacite" prefWidth="129.0" text="capacite" />
+               </columns>
+            </TableView>
+            <ComboBox fx:id="combo_modif" layoutX="394.0" layoutY="55.0" prefHeight="25.0" prefWidth="189.0" promptText="select name" />
+            <Button fx:id="event_delete" layoutX="475.0" layoutY="97.0" mnemonicParsing="false" onAction="#event_delete" style="-fx-background-color: #FA5050;" text="supprimer" />
+            <Button fx:id="event_modifier" layoutX="394.0" layoutY="97.0" mnemonicParsing="false" onAction="#event_modifier" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #BAF44C;" text="details" />
+            <JFXButton fx:id="btn_modif" layoutX="71.0" layoutY="212.0" onAction="#modif_event" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: white;">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <TextField fx:id="txt_emplacement" layoutX="57.0" layoutY="122.0" prefHeight="25.0" prefWidth="168.0" promptText="emplacement" />
+            <TextField fx:id="txt_capacite" layoutX="57.0" layoutY="161.0" onKeyReleased="#controle" prefHeight="25.0" prefWidth="168.0" promptText="capacite" />
+            <TextField fx:id="txt_recherche" layoutX="435.0" layoutY="212.0" onKeyPressed="#btn_recherche" onKeyTyped="#btn_rech" promptText="recherche" />
+            <CheckBox fx:id="tri_chk" layoutX="320.0" layoutY="216.0" mnemonicParsing="false" onAction="#tri_chk" text="tri duree" textFill="WHITE" />
+            <Button layoutX="444.0" layoutY="17.0" mnemonicParsing="false" onAction="#btn_stat" prefHeight="25.0" prefWidth="96.0" style="-fx-background-color: none; -fx-border-radius: 15px; -fx-border-color: white;" text="Statistique" textFill="WHITE" />
+         </children>
+      </Pane>
+      <Pane fx:id="colisadminp" layoutX="90.0" prefHeight="452.0" prefWidth="630.0" style="-fx-background-color: white;">
+         <children>
+            <Accordion layoutX="14.0" layoutY="5.0" prefHeight="404.0" prefWidth="589.0">
+               <panes>
+                  <TitledPane fx:id="listecl1" animated="false" onMouseClicked="#handleaffectercolis" prefHeight="379.0" prefWidth="638.0" text="Affecter Colis">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tablecnaf" layoutY="14.0" prefHeight="306.0" prefWidth="257.0">
+                                 <columns>
+                                    <TableColumn fx:id="nafdepart" prefWidth="92.0" text="depart" />
+                                    <TableColumn fx:id="nafdestination" prefWidth="96.0" text="destination" />
+                                    <TableColumn fx:id="nafpoids" prefWidth="68.0" text="poids" />
+                                 </columns>
+                              </TableView>
+                              <TableView fx:id="tablevaf" layoutX="329.0" layoutY="14.0" prefHeight="305.0" prefWidth="253.0">
+                                 <columns>
+                                    <TableColumn fx:id="nafmatricule" prefWidth="83.0" text="Matricule" />
+                                    <TableColumn fx:id="vnafdep" prefWidth="89.0" text="Depart" />
+                                    <TableColumn fx:id="vnafdest" text="Destination" />
+                                 </columns>
+                              </TableView>
+                              <Button layoutX="62.0" layoutY="326.0" mnemonicParsing="false" onAction="#handlechoicolis" prefHeight="26.0" prefWidth="119.0" text="Colis A Affecté" />
+                              <Button layoutX="409.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleaffcv" prefHeight="26.0" prefWidth="119.0" text="Vehicule choisis" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+                  <TitledPane fx:id="listecolis" animated="false" text="Liste Des Colis">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tablecol" prefHeight="349.0" prefWidth="589.0">
+                                 <columns>
+                                    <TableColumn fx:id="col1" prefWidth="32.0" text="Depart" />
+                                    <TableColumn fx:id="col2" prefWidth="71.0" text="Destination" />
+                                    <TableColumn fx:id="col3" prefWidth="66.0" text="expediteur" />
+                                    <TableColumn fx:id="col4" prefWidth="83.0" text="destinataire" />
+                                    <TableColumn fx:id="col5" prefWidth="98.0" text="mail expediteur" />
+                                    <TableColumn fx:id="col6" prefWidth="100.0" text="mail destinataire" />
+                                    <TableColumn fx:id="col7" prefWidth="43.0" text="poids" />
+                                    <TableColumn fx:id="col8" minWidth="2.0" prefWidth="24.0" text="etat" />
+                                    <TableColumn fx:id="col9" prefWidth="71.0" text="voiture" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+               </panes>
+            </Accordion>
+            <ComboBox fx:id="tribox1" layoutX="446.0" layoutY="417.0" onAction="#handletriercolis" prefWidth="150.0" promptText="Trier par .." />
+            <TextField fx:id="searchfield1" layoutX="269.0" layoutY="417.0" promptText="chercher" />
+            <CheckBox fx:id="nonafc" layoutX="52.0" layoutY="409.0" mnemonicParsing="false" onAction="#handlefiltreaffecte" text="Non Affecté" textFill="#0d0000" />
+            <CheckBox fx:id="nonlivre" layoutX="52.0" layoutY="429.0" mnemonicParsing="false" onAction="#handlefiltrelivre" text="Livré" textFill="#1e0101" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

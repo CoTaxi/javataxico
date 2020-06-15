@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="635.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="taxico.NewinterfacechauffeurController">
+   <children>
+      <ImageView fx:id="backtaxi" fitHeight="525.0" fitWidth="701.0" layoutX="88.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="logout" fitHeight="42.0" fitWidth="42.0" layoutX="709.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="accueil" fitHeight="61.0" fitWidth="58.0" layoutX="19.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/accueil.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="event" fitHeight="61.0" fitWidth="58.0" layoutX="20.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/event.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="fidelite" fitHeight="61.0" fitWidth="58.0" layoutX="20.0" layoutY="401.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/loyalty.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="reclamation" fitHeight="69.0" fitWidth="64.0" layoutX="19.0" layoutY="550.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/reclamation.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="user" fitHeight="53.0" fitWidth="42.0" layoutX="27.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/chauffeur.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="22.0" layoutY="76.0" prefHeight="18.0" prefWidth="58.0" text="Chauffeur" textFill="WHITE" />
+      <Label layoutX="29.0" layoutY="203.0" text="Accueil" textFill="#f0eeee" />
+      <Label layoutX="29.0" layoutY="475.0" text="Fidelité" textFill="WHITE" />
+      <Label layoutX="19.0" layoutY="613.0" prefHeight="18.0" prefWidth="88.0" text="Reclamation" textFill="WHITE" />
+      <Label layoutX="15.0" layoutY="342.0" prefHeight="18.0" prefWidth="64.0" text="Evenement" textFill="WHITE" />
+      <ImageView fx:id="car" fitHeight="53.0" fitWidth="58.0" layoutX="360.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/final.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="mainten" fitHeight="53.0" fitWidth="58.0" layoutX="112.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/maintenance2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="imgconsult" fitHeight="61.0" fitWidth="64.0" layoutX="597.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/consulter.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="112.0" layoutY="89.0" prefHeight="18.0" prefWidth="98.0" text="Maintenance" textFill="#fafafa" />
+      <Label layoutX="334.0" layoutY="84.0" prefHeight="27.0" prefWidth="110.0" text="Ajouter Vehicule" textFill="WHITE" />
+      <Label layoutX="574.0" layoutY="89.0" prefHeight="18.0" prefWidth="110.0" text="Consulter Vehicule" textFill="WHITE" />
+      <AnchorPane layoutX="-3.0" prefHeight="635.0" prefWidth="121.0" style="-fx-background-color: #36324D;">
+         <children>
+            <ImageView fx:id="accueil" fitHeight="61.0" fitWidth="58.0" layoutX="9.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/accueil.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="event" fitHeight="61.0" fitWidth="58.0" layoutX="14.0" layoutY="267.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/event.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="fidelite" fitHeight="61.0" fitWidth="58.0" layoutX="10.0" layoutY="391.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/loyalty.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="reclamation" fitHeight="69.0" fitWidth="64.0" layoutX="9.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/reclamation.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="53.0" fitWidth="42.0" layoutX="17.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/chauffeur.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="12.0" layoutY="66.0" prefHeight="18.0" prefWidth="58.0" text="Chauffeur" textFill="WHITE" />
+            <Label layoutX="19.0" layoutY="193.0" text="Accueil" textFill="#f0eeee" />
+            <Label layoutX="19.0" layoutY="465.0" text="Fidelité" textFill="WHITE" />
+            <Label layoutX="9.0" layoutY="603.0" prefHeight="18.0" prefWidth="88.0" text="Reclamation" textFill="WHITE" />
+            <Label layoutX="5.0" layoutY="332.0" prefHeight="18.0" prefWidth="64.0" text="Evenement" textFill="WHITE" />
+            <Label fx:id="mailfieldc" layoutX="5.0" layoutY="90.0" prefHeight="18.0" prefWidth="88.0" text="achref.nasri@esprit.tn" textFill="WHITE" underline="true" />
+            <Button fx:id="profilbtn" layoutX="11.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleprofilchauf" prefHeight="83.0" prefWidth="64.0" style="-fx-background-color: none;" />
+            <Button layoutX="-2.0" layoutY="245.0" mnemonicParsing="false" onAction="#btn_event" prefHeight="110.0" prefWidth="98.0" style="-fx-background-color: NONE;" />
+            <Button layoutX="-2.0" layoutY="375.0" mnemonicParsing="false" onAction="#btn_fidelite" prefHeight="110.0" prefWidth="98.0" style="-fx-background-color: NONE;" />
+         </children>
+      </AnchorPane>
+      <Pane fx:id="pane_consulter_vehicule" layoutX="108.0" layoutY="13.0" prefHeight="525.0" prefWidth="686.0" style="-fx-background-color: none;">
+         <children>
+            <Button layoutX="447.0" layoutY="494.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="74.0" style="-fx-background-color: #f99f1b; -fx-background-radius: 7em;" text="pdf" />
+            <Button fx:id="btn_supp" layoutX="538.0" layoutY="494.0" mnemonicParsing="false" onAction="#supprimer_vehicule" prefHeight="18.0" prefWidth="102.0" style="-fx-background-color: #f99f1b; -fx-background-radius: 7em;" text="Supprimer" />
+            <TextField fx:id="filterField" layoutX="252.0" layoutY="35.0" opacity="0.85" prefHeight="26.0" prefWidth="130.0" promptText="Rechercher" />
+            <TableView fx:id="table" layoutX="37.0" layoutY="61.0" prefHeight="430.0" prefWidth="588.0" style="-fx-border-color: #36324D;">
+               <columns>
+                  <TableColumn fx:id="col_mat" prefWidth="75.0" text="Matricule" />
+                  <TableColumn fx:id="col_marque" prefWidth="109.59993743896484" text="Marque" />
+                  <TableColumn fx:id="col_modele" prefWidth="108.800048828125" text="Modele" />
+                  <TableColumn fx:id="col_carte" onEditCommit="#changeStatusCellEvent" prefWidth="119.20001220703125" text="Carte Grise" />
+                  <TableColumn fx:id="col_couleur" prefWidth="80.00006103515625" text="Couleur" />
+                  <TableColumn fx:id="col_type" prefWidth="61.5999755859375" text="Type" />
+                  <TableColumn fx:id="col_coli" prefWidth="131.2000732421875" text="Importation des coli" />
+               </columns>
+            </TableView>
+         </children>
+      </Pane>
+      <Pane fx:id="pane_main" layoutX="93.0" prefHeight="532.0" prefWidth="695.0" style="-fx-background-color: white;">
+         <children>
+            <Button layoutX="104.0" layoutY="353.0" mnemonicParsing="false" onAction="#choiceBoxButtonPushed" prefHeight="25.0" prefWidth="83.0" style="-fx-background-radius: 7em;" text="Reserve" />
+            <ComboBox fx:id="comboBox_service" layoutX="67.0" layoutY="153.0" onAction="#SELECTEDcomboBoxService" prefWidth="150.0" promptText="Select Service" style="-fx-background-radius: 7em;" />
+            <ComboBox fx:id="comboBox_garage" layoutX="67.0" layoutY="220.0" onAction="#SELECTEDcomboBoxGarage" prefWidth="150.0" promptText="Select Garage" style="-fx-background-radius: 7em;" />
+            <Button layoutX="465.0" layoutY="328.0" mnemonicParsing="false" onAction="#cancelRdv" style="-fx-background-radius: 7em;" text="Cancel Rdv" />
+            <TableView fx:id="tableViewListReserved" layoutX="390.0" layoutY="120.0" prefHeight="200.0" prefWidth="150.0">
+               <columns>
+                  <TableColumn fx:id="date_rdvColumnReserved" prefWidth="148.0" text="Rdv_Reserved" />
+               </columns>
+            </TableView>
+            <DatePicker fx:id="picker_color" layoutX="67.0" layoutY="288.0" prefHeight="25.0" prefWidth="150.0" />
+         </children>
+      </Pane>
+      <Pane fx:id="pane_ajouter_vehicule" layoutX="89.0" layoutY="-11.0" prefHeight="544.0" prefWidth="727.0" style="-fx-background-color: none;">
+         <children>
+            <AnchorPane layoutX="3.0" layoutY="2.0" prefHeight="544.0" prefWidth="727.0" style="-fx-background-color: #5D6D7E;">
+               <children>
+                  <TextField fx:id="txtmat" alignment="TOP_CENTER" layoutX="88.0" layoutY="110.0" promptText="matricule" />
+                  <TextField fx:id="txtcarte" alignment="TOP_CENTER" layoutX="88.0" layoutY="168.0" promptText="carte" />
+                  <TextField fx:id="txtmarque" alignment="TOP_CENTER" layoutX="88.0" layoutY="229.0" promptText="marque" />
+                  <TextField fx:id="txtmodele" alignment="TOP_CENTER" layoutX="376.0" layoutY="110.0" promptText="modele" />
+                  <ComboBox fx:id="couleur" layoutX="375.0" layoutY="168.0" prefWidth="150.0" promptText="Couleur" />
+                  <ComboBox fx:id="type" layoutX="375.0" layoutY="229.0" prefWidth="150.0" promptText="Type" />
+                  <RadioButton fx:id="coli" layoutX="247.0" layoutY="325.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="130.0" text="Transfert des colis" textFill="#fffdfd" />
+                  <Button layoutX="210.0" layoutY="357.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="53.0" prefWidth="203.0" text="Ajouter" />
+               </children>
+            </AnchorPane>
+         </children>
+      </Pane>
+      <AnchorPane layoutX="88.0" layoutY="534.0" prefHeight="101.0" prefWidth="739.0" style="-fx-background-color: #36324D; -fx-opacity: 1;">
+         <children>
+            <ImageView fx:id="car" fitHeight="53.0" fitWidth="58.0" layoutX="350.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/final.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="mainten" fitHeight="53.0" fitWidth="58.0" layoutX="102.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/maintenance2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgconsult" fitHeight="61.0" fitWidth="64.0" layoutX="587.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/consulter.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="102.0" layoutY="79.0" prefHeight="18.0" prefWidth="98.0" text="Maintenance" textFill="#fafafa" />
+            <Label layoutX="324.0" layoutY="74.0" prefHeight="27.0" prefWidth="110.0" text="Ajouter Vehicule" textFill="WHITE" />
+            <Label layoutX="564.0" layoutY="79.0" prefHeight="18.0" prefWidth="110.0" text="Consulter Vehicule" textFill="WHITE" />
+            <Button fx:id="ajouter_vehbtn" layoutX="345.0" layoutY="25.0" mnemonicParsing="false" onAction="#pane_ajouter_vehicule" prefHeight="53.0" prefWidth="64.0" style="-fx-background-color: none;" textFill="#9f9f9f" />
+            <Button fx:id="consulter_vehbtn" layoutX="587.0" layoutY="33.0" mnemonicParsing="false" onAction="#pane_consulter_vehicule" prefHeight="42.0" prefWidth="64.0" style="-fx-background-color: none;" />
+            <Button fx:id="btn_main" layoutX="81.0" layoutY="-3.0" mnemonicParsing="false" onAction="#btn_main" prefHeight="101.0" prefWidth="98.0" style="-fx-background-color: NONE;" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="ajouter_vehbtn" layoutX="355.0" layoutY="35.0" mnemonicParsing="false" onAction="#pane_ajouter_vehicule" prefHeight="53.0" prefWidth="64.0" style="-fx-background-color: none;" textFill="#9f9f9f" />
+      <Button fx:id="consulter_vehbtn" layoutX="597.0" layoutY="43.0" mnemonicParsing="false" onAction="#pane_consulter_vehicule" prefHeight="42.0" prefWidth="64.0" style="-fx-background-color: none;" />
+   </children>
+</AnchorPane>
