@@ -93,8 +93,8 @@ import services.service_contrat;
 import services.servicescolis;
 import services.servicesuser;
 import services.servicesvehicule;
-import static taxico.AdminuserController.Characters;
-import static taxico.AdminuserController.Numbers;
+//import static taxico.AdminuserController.Characters;
+//import static taxico.AdminuserController.Numbers;
 import utils.ConnexionBD;
 
 /**

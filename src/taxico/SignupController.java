@@ -21,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import org.mindrot.jbcrypt.BCrypt;
 import services.servicesuser;
 
 /**
@@ -114,15 +115,22 @@ public class SignupController implements Initializable {
         String type="client";
         int nb_course=0;
 //String nom, String prenom,int tel,  String mail, String mdp, String naissance, String creation,int active,String image,String type,int nb_course
-        user client = new user(tel,1,0,0,0,0,0,nom,prenom,mail,mdp,naissance,create,"image",type,"");
-        
-       s.ajouteruser(client);
-         FXMLLoader loader = new FXMLLoader
+        String test = BCrypt.hashpw(mdp, BCrypt.gensalt(13));
+           test.replace("$2y$", "$2a$");
+           test.substring(4, test.length());
+           String mdpcrypter = "$2y$"+test.substring(4, test.length());
+            System.out.println(mdpcrypter);
+        user client = new user(tel,1,0,0,0,0,0,nom,prenom,mail,mdp,naissance,create,"image",type,"",mdpcrypter);
+        s.ajouteruser(client);
+           
+        FXMLLoader loader = new FXMLLoader
                         (getClass()
-                         .getResource("FXMLDocument.fxml"));
+                         .getResource("newinterfaceclient.fxml"));
             try {
                 Parent root = loader.load();
-                FXMLDocumentController fdc = loader.getController();
+                ClientinterfaceController puc = loader.getController();
+                puc.setMail(mail);
+                txt_email.getScene().setRoot(root);
             }
              catch (IOException ex) {
                 System.out.println(ex.getMessage());
@@ -141,14 +149,23 @@ public class SignupController implements Initializable {
         int experience=Integer.parseInt(x);
             String typejdid="chauffeur";
 //int id_u, int tel, int active, int cin, int permis, int rib_compte, int experience, int nb_course, String nom, String prenom, String mail, String mdp, String naissance, String creation, String image, String type, String nom_compte
-        user chauffeur=new user(tel,1,cin,permis,rib,experience,0,nom,prenom,mail,mdp,naissance,create,"image",typejdid,nom_c);
+        String test = BCrypt.hashpw(mdp, BCrypt.gensalt(13));
+           test.replace("$2y$", "$2a$");
+           test.substring(4, test.length());
+           String mdpcrypter = "$2y$"+test.substring(4, test.length());
+            System.out.println(mdpcrypter);
+        user chauffeur=new user(tel,1,cin,permis,rib,experience,0,nom,prenom,mail,mdpcrypter,naissance,create,"image",typejdid,nom_c);
         s.ajouterchauffeur(chauffeur);
-               FXMLLoader loader = new FXMLLoader
+        FXMLLoader loader = new FXMLLoader
                         (getClass()
-                         .getResource("FXMLDocument.fxml"));
+                         .getResource("chauffeurinterface.fxml"));
             try {
                 Parent root = loader.load();
-                FXMLDocumentController fdc = loader.getController();
+                ChauffeurinterfaceController cic = loader.getController();
+                cic.setMail(mail);
+//                cic.setId(id);
+               // apc.setpdp(image);
+                txt_email.getScene().setRoot(root);
             }
              catch (IOException ex) {
                 System.out.println(ex.getMessage());

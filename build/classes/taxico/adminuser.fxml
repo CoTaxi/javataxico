@@ -88,42 +88,93 @@
             <CheckBox fx:id="nonlivre" layoutX="37.0" layoutY="482.0" mnemonicParsing="false" onAction="#handlefiltrelivre" text="Livré" textFill="#fcfafa" />
          </children>
       </Pane>
-      <Pane fx:id="pnl_event" layoutX="185.0" prefHeight="505.0" prefWidth="596.0" style="-fx-background-color: white;">
+      <Pane fx:id="userp" layoutX="175.0" prefHeight="512.0" prefWidth="1097.0" style="-fx-background-color: purple;">
          <children>
-            <TextField fx:id="txt_nom" layoutX="34.0" layoutY="14.0" prefHeight="25.0" prefWidth="168.0" promptText="nom evennement" />
-            <DatePicker fx:id="txt_date" layoutX="34.0" layoutY="53.0" prefHeight="25.0" prefWidth="168.0" promptText="date de debut" />
-            <TextField fx:id="dureejdida" layoutX="34.0" layoutY="95.0" prefHeight="25.0" prefWidth="168.0" promptText="duree" />
-            <Button fx:id="btn_add" layoutX="132.0" layoutY="223.0" mnemonicParsing="false" onAction="#btn_add" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #BAF44C;" text="ajouter" />
-            <TableView fx:id="table" editable="true" layoutY="261.0" prefHeight="200.0" prefWidth="597.0">
+            <Accordion layoutX="9.0" layoutY="14.0" prefHeight="425.0" prefWidth="1021.0">
+              <panes>
+                <TitledPane fx:id="listecl" animated="false" onMouseClicked="#handleaffichcl" text="Liste Des Clients">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tablecl" prefHeight="349.0" prefWidth="1021.0">
+                                 <columns>
+                                    <TableColumn fx:id="secondnom" prefWidth="67.00003051757812" text="nom" />
+                                    <TableColumn fx:id="secondprenom" prefWidth="67.99996948242188" text="prenom" />
+                                    <TableColumn fx:id="secondtel" prefWidth="73.0" text="tel" />
+                                    <TableColumn fx:id="secondmail" prefWidth="120.0" text="mail" />
+                                    <TableColumn fx:id="secondnaissance" prefWidth="195.0" text="naissance" />
+                                    <TableColumn fx:id="secondcreation" prefWidth="181.0" text="creation" />
+                                    <TableColumn fx:id="secondactive" prefWidth="125.0" text="active" />
+                                    <TableColumn fx:id="secondcourse" prefWidth="190.0" text="nombre course" />
+                                 </columns>
+                              </TableView>
+                           </children></AnchorPane>
+                  </content>
+                </TitledPane>
+                <TitledPane fx:id="listech" animated="false" onMouseClicked="#handleaffichch" prefHeight="400.0" prefWidth="586.0" text="Liste Des Chauffeurs">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="tablech" prefHeight="349.0" prefWidth="1021.0">
+                                <columns>
+                                  <TableColumn fx:id="nom" prefWidth="32.0" text="nom" />
+                                  <TableColumn fx:id="prenom" prefWidth="52.0" text="prenom" />
+                                    <TableColumn fx:id="tel" prefWidth="61.0" text="tel" />
+                                    <TableColumn fx:id="mail" prefWidth="90.0" text="mail" />
+                                    <TableColumn fx:id="naissance" prefWidth="91.0" text="naissance" />
+                                    <TableColumn fx:id="creation" prefWidth="109.0" text="creation" />
+                                    <TableColumn fx:id="active" prefWidth="76.0" text="active" />
+                                    <TableColumn fx:id="cin" prefWidth="89.0" text="cin" />
+                                    <TableColumn fx:id="nomc" prefWidth="104.0" text="nom compte" />
+                                    <TableColumn fx:id="ribc" prefWidth="100.0" text="rib compte" />
+                                    <TableColumn fx:id="experience" prefWidth="99.0" text="experience" />
+                                    <TableColumn fx:id="nbrcourse" prefWidth="117.0" text="nombre course" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </TitledPane>
+              </panes>
+            </Accordion>
+            <ComboBox fx:id="tribox" layoutX="415.0" layoutY="471.0" onAction="#handletrierchauff" prefWidth="150.0" promptText="Trier par .." />
+            <TextField fx:id="searchfield" layoutX="238.0" layoutY="471.0" promptText="chercher" />
+            <CheckBox fx:id="checkifactive" layoutX="21.0" layoutY="463.0" mnemonicParsing="false" onAction="#handlefiltreactive" text="Active" textFill="#fcf9f9" />
+            <CheckBox fx:id="checkifarchive" layoutX="21.0" layoutY="483.0" mnemonicParsing="false" onAction="#handlefiltrearchive" text="Archive" textFill="#fcfafa" />
+         </children>
+      </Pane>
+      <Pane fx:id="pnl_fidelite" layoutX="174.0" onDragDetected="#pnl_fidelite" prefHeight="512.0" prefWidth="1097.0" style="-fx-background-color: white;">
+         <children>
+            <TableView fx:id="tab_fidelite" layoutX="201.0" layoutY="310.0" prefHeight="168.0" prefWidth="710.0">
                <columns>
-                  <TableColumn fx:id="col_nom" prefWidth="156.0" text="nom" />
-                  <TableColumn fx:id="col_date" prefWidth="148.0" text="date" />
-                  <TableColumn fx:id="col_duree" prefWidth="71.0" text="duree" />
-                  <TableColumn fx:id="col_emplacement" prefWidth="105.0" text="emplacement" />
-                  <TableColumn fx:id="col_capacite" prefWidth="129.0" text="capacite" />
+                  <TableColumn fx:id="nom_client" prefWidth="355.0" text="client" />
+                  <TableColumn fx:id="point_fidelite" prefWidth="353.0" text="points" />
                </columns>
             </TableView>
-            <ComboBox fx:id="combo_modif" layoutX="369.0" layoutY="66.0" prefHeight="25.0" prefWidth="189.0" promptText="select name" />
-            <Button fx:id="event_delete" layoutX="450.0" layoutY="108.0" mnemonicParsing="false" onAction="#event_delete" style="-fx-background-color: #FA5050;" text="supprimer" />
-            <Button fx:id="event_modifier" layoutX="369.0" layoutY="108.0" mnemonicParsing="false" onAction="#event_modifier" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #BAF44C;" text="details" />
-            <JFXButton fx:id="btn_modif" layoutX="46.0" layoutY="223.0" onAction="#modif_event" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: white;">
+            <TextField fx:id="txt_points" layoutX="201.0" layoutY="266.0" prefHeight="25.0" prefWidth="200.0" promptText="points fidelite" />
+            <Button fx:id="btn_points" layoutX="418.0" layoutY="266.0" mnemonicParsing="false" onAction="#btn_points" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #BAF44C;" text="valider" />
+            <Label layoutX="201.0" layoutY="23.0" text="nombre des invitation :">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
-            </JFXButton>
-            <TextField fx:id="txt_emplacement" layoutX="32.0" layoutY="133.0" prefHeight="25.0" prefWidth="168.0" promptText="emplacement" />
-            <TextField fx:id="txt_capacite" layoutX="32.0" layoutY="172.0" onKeyReleased="#controle" prefHeight="25.0" prefWidth="168.0" promptText="capacite" />
-            <TextField fx:id="txt_recherche" layoutX="410.0" layoutY="223.0" onKeyPressed="#btn_recherche" onKeyTyped="#btn_rech" promptText="recherche" />
-            <CheckBox fx:id="tri_chk" layoutX="295.0" layoutY="227.0" mnemonicParsing="false" onAction="#tri_chk" text="tri duree" textFill="WHITE" />
+            </Label>
+            <Label fx:id="nbr_inv" layoutX="340.0" layoutY="23.0" prefHeight="17.0" prefWidth="48.0" text="Label" textFill="#0a0000" />
          </children>
       </Pane>
-      <Pane fx:id="pnl_stat" layoutX="184.0" prefHeight="505.0" prefWidth="603.0" style="-fx-background-color: white;">
+      <Pane fx:id="archivep" layoutX="175.0" prefHeight="512.0" prefWidth="1097.0" style="-fx-background-color: black;">
          <children>
-            <Button fx:id="stat_event1" layoutX="233.0" layoutY="198.0" mnemonicParsing="false" onAction="#stat_event1" prefHeight="60.0" prefWidth="264.0" style="-fx-background-color: none; -fx-border-image-width: 20px; -fx-border-color: black;" text="Emplacement des evennement">
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Button>
+            <TextField fx:id="txt_arch" layoutX="20.0" layoutY="67.0" prefHeight="25.0" prefWidth="307.0" promptText="Chercher votre archive..." />
+            <TableView fx:id="tab_arch" layoutX="20.0" layoutY="96.0" prefHeight="366.0" prefWidth="1057.0">
+               <columns>
+                  <TableColumn fx:id="id_arch" prefWidth="54.6666898727417" text="ID" visible="false" />
+                  <TableColumn fx:id="msg_arch" prefWidth="251.9999771118164" text="Message" />
+                  <TableColumn fx:id="etat_arch" prefWidth="125.3333740234375" text="Etat" />
+                  <TableColumn fx:id="date_arch" prefWidth="158.66665649414062" text="Date de réclamation" />
+                  <TableColumn fx:id="rep_arch" prefWidth="220.00006103515625" text="Réponse admin" />
+                  <TableColumn fx:id="pre_arch" prefWidth="248.0" text="Prénom &amp; Nom" />
+               </columns>
+            </TableView>
+            <Button fx:id="btn_arch" layoutX="884.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleAdmin" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #f99f1b;" text="Gérer tous les réclamations" />
          </children>
       </Pane>
       <Pane fx:id="Reclamationp" layoutX="175.0" prefHeight="512.0" prefWidth="1097.0" style="-fx-background-color: black;">
@@ -183,93 +234,42 @@
             </TableView>
          </children>
       </Pane>
-      <Pane fx:id="archivep" layoutX="175.0" prefHeight="512.0" prefWidth="1097.0" style="-fx-background-color: black;">
+      <Pane fx:id="pnl_stat" layoutX="175.0" prefHeight="512.0" prefWidth="1097.0" style="-fx-background-color: white;">
          <children>
-            <TextField fx:id="txt_arch" layoutX="20.0" layoutY="67.0" prefHeight="25.0" prefWidth="307.0" promptText="Chercher votre archive..." />
-            <TableView fx:id="tab_arch" layoutX="20.0" layoutY="96.0" prefHeight="366.0" prefWidth="1057.0">
-               <columns>
-                  <TableColumn fx:id="id_arch" prefWidth="54.6666898727417" text="ID" visible="false" />
-                  <TableColumn fx:id="msg_arch" prefWidth="251.9999771118164" text="Message" />
-                  <TableColumn fx:id="etat_arch" prefWidth="125.3333740234375" text="Etat" />
-                  <TableColumn fx:id="date_arch" prefWidth="158.66665649414062" text="Date de réclamation" />
-                  <TableColumn fx:id="rep_arch" prefWidth="220.00006103515625" text="Réponse admin" />
-                  <TableColumn fx:id="pre_arch" prefWidth="248.0" text="Prénom &amp; Nom" />
-               </columns>
-            </TableView>
-            <Button fx:id="btn_arch" layoutX="884.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleAdmin" prefHeight="25.0" prefWidth="193.0" style="-fx-background-color: #f99f1b;" text="Gérer tous les réclamations" />
+            <Button fx:id="stat_event1" layoutX="417.0" layoutY="226.0" mnemonicParsing="false" onAction="#stat_event1" prefHeight="60.0" prefWidth="264.0" style="-fx-background-color: none; -fx-border-image-width: 20px; -fx-border-color: black;" text="Emplacement des evennement">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
-      <Pane fx:id="pnl_fidelite" layoutX="183.0" onDragDetected="#pnl_fidelite" prefHeight="505.0" prefWidth="603.0" style="-fx-background-color: white;">
+      <Pane fx:id="pnl_event" layoutX="170.0" prefHeight="512.0" prefWidth="1104.0" style="-fx-background-color: white;">
          <children>
-            <TableView fx:id="tab_fidelite" layoutX="55.0" layoutY="315.0" prefHeight="168.0" prefWidth="515.0">
+            <TextField fx:id="txt_nom" layoutX="144.0" layoutY="40.0" prefHeight="25.0" prefWidth="168.0" promptText="nom evennement" />
+            <DatePicker fx:id="txt_date" layoutX="144.0" layoutY="79.0" prefHeight="25.0" prefWidth="168.0" promptText="date de debut" />
+            <TextField fx:id="dureejdida" layoutX="144.0" layoutY="121.0" prefHeight="25.0" prefWidth="168.0" promptText="duree" />
+            <Button fx:id="btn_add" layoutX="448.0" layoutY="124.0" mnemonicParsing="false" onAction="#btn_add" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #BAF44C;" text="ajouter" />
+            <TableView fx:id="table" editable="true" layoutX="246.0" layoutY="263.0" prefHeight="200.0" prefWidth="740.0">
                <columns>
-                  <TableColumn fx:id="nom_client" prefWidth="261.0" text="client" />
-                  <TableColumn fx:id="point_fidelite" prefWidth="254.0" text="points" />
+                  <TableColumn fx:id="col_nom" prefWidth="156.0" text="nom" />
+                  <TableColumn fx:id="col_date" prefWidth="148.0" text="date" />
+                  <TableColumn fx:id="col_duree" prefWidth="148.0" text="duree" />
+                  <TableColumn fx:id="col_emplacement" prefWidth="152.0" text="emplacement" />
+                  <TableColumn fx:id="col_capacite" prefWidth="135.0" text="capacite" />
                </columns>
             </TableView>
-            <TextField fx:id="txt_points" layoutX="55.0" layoutY="266.0" prefHeight="25.0" prefWidth="142.0" promptText="points fidelite" />
-            <Button fx:id="btn_points" layoutX="209.0" layoutY="266.0" mnemonicParsing="false" onAction="#btn_points" style="-fx-background-color: #BAF44C;" text="valider" />
-            <Label layoutX="14.0" layoutY="22.0" text="nombre des invitation :">
+            <ComboBox fx:id="combo_modif" layoutX="862.0" layoutY="62.0" prefHeight="25.0" prefWidth="189.0" promptText="select name" />
+            <Button fx:id="event_delete" layoutX="968.0" layoutY="104.0" mnemonicParsing="false" onAction="#event_delete" prefHeight="25.0" prefWidth="84.0" style="-fx-background-color: #FA5050;" text="supprimer" />
+            <Button fx:id="event_modifier" layoutX="862.0" layoutY="104.0" mnemonicParsing="false" onAction="#event_modifier" prefHeight="25.0" prefWidth="95.0" style="-fx-background-color: #BAF44C;" text="details" />
+            <JFXButton fx:id="btn_modif" layoutX="352.0" layoutY="117.0" onAction="#modif_event" prefHeight="32.0" prefWidth="70.0" style="-fx-background-color: white;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
-            </Label>
-            <Label fx:id="nbr_inv" layoutX="153.0" layoutY="22.0" prefHeight="17.0" prefWidth="48.0" text="Label" textFill="#0a0000" />
-         </children>
-      </Pane>
-      <Pane fx:id="userp" layoutX="191.0" prefHeight="505.0" prefWidth="589.0" style="-fx-background-color: purple;">
-         <children>
-            <Accordion layoutX="9.0" layoutY="14.0" prefHeight="425.0" prefWidth="569.0">
-              <panes>
-                <TitledPane fx:id="listecl" animated="false" onMouseClicked="#handleaffichcl" text="Liste Des Clients">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <TableView fx:id="tablecl" prefHeight="349.0" prefWidth="569.0">
-                                 <columns>
-                                    <TableColumn fx:id="secondnom" prefWidth="39.0" text="nom" />
-                                    <TableColumn fx:id="secondprenom" prefWidth="57.0" text="prenom" />
-                                    <TableColumn fx:id="secondtel" prefWidth="46.0" text="tel" />
-                                    <TableColumn fx:id="secondmail" prefWidth="67.0" text="mail" />
-                                    <TableColumn fx:id="secondnaissance" prefWidth="104.0" text="naissance" />
-                                    <TableColumn fx:id="secondcreation" prefWidth="109.0" text="creation" />
-                                    <TableColumn fx:id="secondactive" prefWidth="48.0" text="active" />
-                                    <TableColumn fx:id="secondcourse" prefWidth="97.0" text="nombre course" />
-                                 </columns>
-                              </TableView>
-                           </children></AnchorPane>
-                  </content>
-                </TitledPane>
-                <TitledPane fx:id="listech" animated="false" onMouseClicked="#handleaffichch" text="Liste Des Chauffeurs">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <TableView fx:id="tablech" prefHeight="349.0" prefWidth="569.0">
-                                <columns>
-                                  <TableColumn fx:id="nom" prefWidth="32.0" text="nom" />
-                                  <TableColumn fx:id="prenom" prefWidth="52.0" text="prenom" />
-                                    <TableColumn fx:id="tel" prefWidth="26.0" text="tel" />
-                                    <TableColumn fx:id="mail" prefWidth="38.0" text="mail" />
-                                    <TableColumn fx:id="naissance" prefWidth="38.0" text="naissance" />
-                                    <TableColumn fx:id="creation" prefWidth="38.0" text="creation" />
-                                    <TableColumn fx:id="active" prefWidth="38.0" text="active" />
-                                    <TableColumn fx:id="cin" prefWidth="35.0" text="cin" />
-                                    <TableColumn fx:id="nomc" prefWidth="59.0" text="nom compte" />
-                                    <TableColumn fx:id="ribc" prefWidth="67.0" text="rib compte" />
-                                    <TableColumn fx:id="experience" prefWidth="64.0" text="experience" />
-                                    <TableColumn fx:id="nbrcourse" prefWidth="81.0" text="nombre course" />
-                                </columns>
-                              </TableView>
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </TitledPane>
-              </panes>
-            </Accordion>
-            <ComboBox fx:id="tribox" layoutX="415.0" layoutY="471.0" onAction="#handletrierchauff" prefWidth="150.0" promptText="Trier par .." />
-            <TextField fx:id="searchfield" layoutX="238.0" layoutY="471.0" promptText="chercher" />
-            <CheckBox fx:id="checkifactive" layoutX="21.0" layoutY="463.0" mnemonicParsing="false" onAction="#handlefiltreactive" text="Active" textFill="#fcf9f9" />
-            <CheckBox fx:id="checkifarchive" layoutX="21.0" layoutY="483.0" mnemonicParsing="false" onAction="#handlefiltrearchive" text="Archive" textFill="#fcfafa" />
+            </JFXButton>
+            <TextField fx:id="txt_emplacement" layoutX="348.0" layoutY="34.0" prefHeight="25.0" prefWidth="168.0" promptText="emplacement" />
+            <TextField fx:id="txt_capacite" layoutX="348.0" layoutY="73.0" onKeyReleased="#controle" prefHeight="25.0" prefWidth="168.0" promptText="capacite" />
+            <TextField fx:id="txt_recherche" layoutX="698.0" layoutY="223.0" onKeyPressed="#btn_recherche" onKeyTyped="#btn_rech" prefHeight="25.0" prefWidth="251.0" promptText="recherche" />
+            <CheckBox fx:id="tri_chk" layoutX="616.0" layoutY="227.0" mnemonicParsing="false" onAction="#tri_chk" text="tri duree" textFill="WHITE" />
          </children>
       </Pane>
    </children>

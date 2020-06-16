@@ -14,6 +14,8 @@ import java.util.Date;
 public class user {
   private int id_u,tel,active,cin,permis,rib_compte,experience,nb_course,point_fidelite;
   private String nom,prenom,mail,mdp,naissance,creation,image,type,nom_compte,nom_event;
+  private String role;
+  String mdpcrypter;
   
     public user(String nom, String prenom,int tel,  String mail, String mdp, String naissance, String creation,int active,String image,String type,int nb_course) {
        
@@ -28,6 +30,18 @@ public class user {
         this.image =image;
         this.type=type;
         this.nb_course=nb_course;
+    }
+
+    public user(String role) {
+        this.role = role;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public user( String nom,int point_fidelite) {
@@ -53,6 +67,34 @@ public class user {
         this.image = image;
         this.type = type;
         this.nom_compte = nom_compte;
+    }
+    public user(int tel, int active, int cin, int permis, int rib_compte, int experience, int nb_course, String nom, String prenom, String mail, String mdp, String naissance, String creation, String image, String type, String nom_compte,String mdpcrypter) {
+ 
+        this.tel = tel;
+        this.active = active;
+        this.cin = cin;
+        this.permis = permis;
+        this.rib_compte = rib_compte;
+        this.experience = experience;
+        this.nb_course = nb_course;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.mail = mail;
+        this.mdp = mdp;
+        this.naissance = naissance;
+        this.creation = creation;
+        this.image = image;
+        this.type = type;
+        this.nom_compte = nom_compte;
+        this.mdpcrypter = mdpcrypter;
+    }
+
+    public String getMdpcrypter() {
+        return mdpcrypter;
+    }
+
+    public void setMdpcrypter(String mdpcrypter) {
+        this.mdpcrypter = mdpcrypter;
     }
 
     public user(int id_u, int tel, String nom, String prenom, String mail) {

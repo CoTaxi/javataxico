@@ -5,7 +5,6 @@
  */
 package taxico;
 
-import entities.UserSession;
 import entities.user;
 import java.io.IOException;
 import java.net.URL;
@@ -28,6 +27,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.mindrot.jbcrypt.BCrypt;
 import services.servicesuser;
 
 /**
@@ -41,6 +41,7 @@ public class FXMLDocumentController implements Initializable {
     private TextField mailfield;
     @FXML
     private TextField pwdfield;
+  int id;
     servicesuser sru = new servicesuser();
     private String nom,prenom,naissance,creation,image,type,nom_compte;
     private int tel,nbr_course,cin,permis,rib_compte;
@@ -50,7 +51,6 @@ public class FXMLDocumentController implements Initializable {
     private Hyperlink sign_up;
     @FXML
     private Button btn_login;
-    int id;
     /**
      * Initializes the controller class.
      */
@@ -61,18 +61,23 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void handlecnx(ActionEvent event) {
-           
+            
       String  email =mailfield.getText();
       String mdp = pwdfield.getText();
       boolean active= sru.verifiercompte(email,mdp);
       Boolean test = sru.seconnecter(email, mdp);
-      gettype(email);
+//      String test7 = BCrypt.hashpw(mdp, BCrypt.gensalt(13));
+//           test7.replace("$2y$", "$2a$");
+//           test7.substring(4, test7.length());
+//           String mdpcrypter = "$2y$"+test7.substring(4, test7.length());
+      String role = sru.getclient(email, mdp).get(0).getRole();
+//      gettype(email);
             if(test)
             {
-                if((email.equals("admin") && mdp.equals("admin")))
+                if((role.equals("a:1:{i:0;s:10:\"ROLE_ADMIN\";}")))
                 {
                   try {
-              Parent  conn_page = FXMLLoader.load(getClass().getResource("backadmin.fxml"));
+              Parent  conn_page = FXMLLoader.load(getClass().getResource("adminuser.fxml"));
               Scene conn_scene = new Scene(conn_page);
               Stage conn_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
               conn_stage.setScene(conn_scene);
@@ -83,31 +88,30 @@ public class FXMLDocumentController implements Initializable {
                 }
                else  if(active)
             {
-                if(type.equals("client"))
-                {   UserSession.getInstace(id, email);
-                    FXMLLoader loader = new FXMLLoader
+                if(role.equals("a:1:{i:0;s:11:\"ROLE_CLIENT\";}"))
+                {FXMLLoader loader = new FXMLLoader
                         (getClass()
                          .getResource("newinterfaceclient.fxml"));
             try {
                 Parent root = loader.load();
-                NewinterfaceclientController nicc = loader.getController();
-                nicc.setMail(email);
-                nicc.setid(id);
+                NewinterfaceclientController puc = loader.getController();
+                puc.setMail(email);
                 mailfield.getScene().setRoot(root);
             }
              catch (IOException ex) {
                 System.out.println(ex.getMessage());
                 }
                 }
-                else   if(type.equals("chauffeur"))
+                else   if(role.equals("a:1:{i:0;s:14:\"ROLE_CHAUFFEUR\";}"))
                 {
                  FXMLLoader loader = new FXMLLoader
                         (getClass()
-                         .getResource("newinterfacechauffeur.fxml"));
+                         .getResource("chauffeurinterface.fxml"));
             try {
                 Parent root = loader.load();
-                NewinterfacechauffeurController nic = loader.getController();
-                nic.setMail(email);
+                ChauffeurinterfaceController cic = loader.getController();
+                cic.setMail(email);
+//                cic.setId(id);
                // apc.setpdp(image);
                 mailfield.getScene().setRoot(root);
             }
@@ -148,7 +152,8 @@ public class FXMLDocumentController implements Initializable {
               Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
           }
             }
-        } 
+        }
+    
     public void gettype(String mail)
     {
                listeuser = sru.afficherclient(mail);

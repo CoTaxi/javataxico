@@ -3,9 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/TaxiCo/src/taxico/FXMLDocumentController.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/TaxiCo/src/entities/user.java</file>
-            <file>file:/C:/Users/ASUS/Documents/NetBeansProjects/TaxiCo/src/services/servicesuser.java</file>
+            <file>file:/C:/Users/walid/OneDrive/Bureau/Esprit-3A3/javataxico/src/taxico/SignupController.java</file>
+            <file>file:/C:/Users/walid/OneDrive/Bureau/Esprit-3A3/javataxico/src/taxico/FXMLDocumentController.java</file>
+            <file>file:/C:/Users/walid/OneDrive/Bureau/Esprit-3A3/javataxico/src/services/servicesuser.java</file>
+            <file>file:/C:/Users/walid/OneDrive/Bureau/Esprit-3A3/javataxico/src/taxico/AdminuserController.java</file>
+            <file>file:/C:/Users/walid/OneDrive/Bureau/Esprit-3A3/javataxico/src/taxico/BackadminController.java</file>
+            <file>file:/C:/Users/walid/OneDrive/Bureau/Esprit-3A3/javataxico/src/taxico/ClientinterfaceController.java</file>
+            <file>file:/C:/Users/walid/OneDrive/Bureau/Esprit-3A3/javataxico/nbproject/jfx-impl.xml</file>
+            <file>file:/C:/Users/walid/OneDrive/Bureau/Esprit-3A3/javataxico/src/entities/user.java</file>
+            <file>file:/C:/Users/walid/OneDrive/Bureau/Esprit-3A3/javataxico/src/utils/ConnexionBD.java</file>
+            <file>file:/C:/Users/walid/OneDrive/Bureau/Esprit-3A3/javataxico/src/taxico/ChauffeurinterfaceController.java</file>
+            <file>file:/C:/Users/walid/OneDrive/Bureau/Esprit-3A3/javataxico/src/services/AdminCRUD.java</file>
         </group>
     </open-files>
 </project-private>

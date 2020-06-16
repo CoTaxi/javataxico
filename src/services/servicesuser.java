@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.mindrot.jbcrypt.BCrypt;
 import utils.ConnexionBD;
 
 /**
@@ -78,24 +79,31 @@ public class servicesuser {
       }
       public boolean seconnecter(String mail,String mdp)
     {   boolean test= true;
+    
         try {
            
-            String stat = ("select user.nom,user.prenom,user.tel,user.email,user.mdp,user.creation,user.naissance from user where user.email='"+mail+"' and user.mdp='"+mdp+"' ");
+            String stat = ("select user.nom,user.prenom,user.tel,user.mail,user.mdp,user.creation,user.naissance,user.password from user where user.mail='"+mail+"' ");
             PreparedStatement pt=c.prepareStatement(stat);
-            ResultSet rs = pt.executeQuery();            
+            ResultSet rs = pt.executeQuery(); 
             if (rs.next()) {
-            test = true;
-            }
-            else 
+                
+                 String pw = rs.getString("password");
+            pw = pw.replace("$2y$", "$2a$");
+            if (BCrypt.checkpw(mdp, pw))
+            {
+                
+            
+                test = true;
+            }            else 
+
             {
                 System.out.println("verifier vos donnees!!!");
                 test=false;
-            }
+            }}
         } catch (SQLException ex) {
             Logger.getLogger(servicesuser.class.getName()).log(Level.SEVERE, null, ex);
         }
-      return test;  
-        
+      return test;   
     }
  
     
@@ -123,10 +131,12 @@ public class servicesuser {
         }
        return test;         
     }
-          public List<user> afficherAllchauffeur (String type)
+          public ArrayList<Rdv> rdvs;
+     
+          public List<user> afficherAllchauffeur (String role)
     {    List<user> arr=new ArrayList<>();
         try {
-            String stat = ("select * from user where type='"+type+"' ");
+            String stat = ("select * from user where roles='"+role+"' ");
             PreparedStatement pt=c.prepareStatement(stat);
             ResultSet rs = pt.executeQuery();            
             while (rs.next()) 
@@ -134,7 +144,7 @@ public class servicesuser {
                 String nom=rs.getString("nom");
                 String prenom=rs.getString("prenom");
                 int tel=rs.getInt("tel");
-                String mail=rs.getString("email");
+                String mail=rs.getString("mail");
                 String create=rs.getString("creation");
                 String naiss=rs.getString("naissance");
                 int active = rs.getInt("active");
@@ -146,6 +156,43 @@ public class servicesuser {
                 int experience=rs.getInt("experience");
                 String user=rs.getString("type");
                 user client =new user(tel,active,cin,permis,rib_compte,experience,nbr_course,nom,prenom,mail,"xxxx",naiss,create,"image",user,nom_compte);
+                arr.add(client);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(servicesuser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arr;
+        
+    }
+           public List<user> getclient (String mail,String mdp)
+    {    List<user> arr=new ArrayList<>();
+        try {
+            String stat = ("select * from user where user.mail='"+mail+"' and user.mdp='"+mdp+"' ");
+            PreparedStatement pt=c.prepareStatement(stat);
+            ResultSet rs = pt.executeQuery();            
+            while (rs.next()) 
+            {
+                String role=rs.getString("roles");
+                user client =new user(role);
+                arr.add(client);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(servicesuser.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return arr;
+        
+    }
+           
+           public List<user> getrole ()
+    {    List<user> arr=new ArrayList<>();
+        try {
+            String stat = ("select * from user");
+            PreparedStatement pt=c.prepareStatement(stat);
+            ResultSet rs = pt.executeQuery();            
+            while (rs.next()) 
+            {
+                String role=rs.getString("roles");
+                user client =new user(role);
                 arr.add(client);
             }
         } catch (SQLException ex) {
@@ -155,10 +202,10 @@ public class servicesuser {
         
     }
           
-    public List<user> filtrer (String type,int act)
+    public List<user> filtrer (String role,int act)
     {    List<user> arr=new ArrayList<>();
         try {
-            String stat = ("select * from user where type='"+type+"' and active='"+act+"' ");
+            String stat = ("select * from user where roles='"+role+"' and active='"+act+"' ");
             PreparedStatement pt=c.prepareStatement(stat);
             ResultSet rs = pt.executeQuery();            
             while (rs.next()) 
@@ -166,7 +213,7 @@ public class servicesuser {
                 String nom=rs.getString("nom");
                 String prenom=rs.getString("prenom");
                 int tel=rs.getInt("tel");
-                String mail=rs.getString("email");
+                String mail=rs.getString("mail");
                 String create=rs.getString("creation");
                 String naiss=rs.getString("naissance");
                 int active = rs.getInt("active");
@@ -186,12 +233,12 @@ public class servicesuser {
         return arr;
         
     }
-              public List<user> getTrier(String user)
+              public List<user> getTrier(String role)
               {
         
             List<user> arr=new ArrayList<>();
         try {
-            String stat = ("select * from user where type='"+user+"' ORDER BY experience DESC");
+            String stat = ("select * from user where roles='"+role+"' ORDER BY experience DESC");
             PreparedStatement pt=c.prepareStatement(stat);
             ResultSet rs = pt.executeQuery();   
             
@@ -200,7 +247,7 @@ public class servicesuser {
                 String nom=rs.getString("nom");
                 String prenom=rs.getString("prenom");
                 int tel=rs.getInt("tel");
-                String email=rs.getString("email");
+                String email=rs.getString("mail");
                 String create=rs.getString("creation");
                 String naiss=rs.getString("naissance");
                 int active = rs.getInt("active");
@@ -220,12 +267,12 @@ public class servicesuser {
         }
             return arr;
     }
-     public List<user> getTrierByCourse(String user)
+     public List<user> getTrierByCourse(String role)
               {
         
             List<user> arr=new ArrayList<>();
         try {
-            String stat = ("select * from user where type='"+user+"' ORDER BY nbr_course DESC");
+            String stat = ("select * from user where roles='"+role+"' ORDER BY nbr_course DESC");
             PreparedStatement pt=c.prepareStatement(stat);
             ResultSet rs = pt.executeQuery();   
             
@@ -234,7 +281,7 @@ public class servicesuser {
                 String nom=rs.getString("nom");
                 String prenom=rs.getString("prenom");
                 int tel=rs.getInt("tel");
-                String email=rs.getString("email");
+                String email=rs.getString("mail");
                 String create=rs.getString("creation");
                 String naiss=rs.getString("naissance");
                 int active = rs.getInt("active");
@@ -254,12 +301,12 @@ public class servicesuser {
         }
             return arr;
     }
-     public List<user> getTrierByNom(String user)
+     public List<user> getTrierByNom(String role)
               {
         
             List<user> arr=new ArrayList<>();
         try {
-            String stat = ("select * from user where type='"+user+"' ORDER BY nom DESC");
+            String stat = ("select * from user where roles='"+role+"' ORDER BY nom DESC");
             PreparedStatement pt=c.prepareStatement(stat);
             ResultSet rs = pt.executeQuery();   
             
@@ -268,7 +315,7 @@ public class servicesuser {
                 String nom=rs.getString("nom");
                 String prenom=rs.getString("prenom");
                 int tel=rs.getInt("tel");
-                String email=rs.getString("email");
+                String email=rs.getString("mail");
                 String create=rs.getString("creation");
                 String naiss=rs.getString("naissance");
                 int active = rs.getInt("active");
@@ -288,6 +335,8 @@ public class servicesuser {
         }
             return arr;
     }
+          
+    
       public List<user> afficherclient (String mail)
     {    List<user> arr=new ArrayList<>();
         try {
@@ -421,10 +470,10 @@ public class servicesuser {
   public void ajouterchauffeur(user client)
      {
         try {
+            String role = "a:1:{i:0;s:14:\"ROLE_CHAUFFEUR\";}";
             Statement st =c.createStatement();
             //String req="insert into  user,chauffeur values("+ch.getId_ch()+",'"+ch.getNom()+"','"+ch.getPrenom()+"')";
-            st.executeUpdate("insert into  user (username,username_canonical,email,email_canonical,enabled,password)values('"+client.getNom()+"','"+client.getNom()+"','"+client.getMail()+"','"+client.getMail()+"','1','"+client.getMdp()+"')");
-            st.executeUpdate("insert into  user (nom,prenom,tel,mail,mdp,naissance,creation,active,image,type,cin,permis,nom_compte,rib_compte,experience,nbr_course)values('"+client.getNom()+"','"+client.getPrenom()+"','"+client.getTel()+"','"+client.getMail()+"','"+client.getMdp()+"','"+client.getNaissance()+"','"+client.getCreation()+"',1,'"+client.getImage()+"','"+client.getType()+"','"+client.getCin()+"','"+client.getPermis()+"','"+client.getNom_compte()+"','"+client.getRib_compte()+"','"+client.getExperience()+"','"+client.getNb_course()+"')");
+            st.executeUpdate("insert into  user (nom,prenom,tel,mail,mdp,naissance,creation,active,image,type,cin,permis,nom_compte,rib_compte,experience,nbr_course,roles,username,username_canonical,email,email_canonical,password)values('"+client.getNom()+"','"+client.getPrenom()+"','"+client.getTel()+"','"+client.getMail()+"','"+client.getMdp()+"','"+client.getNaissance()+"','"+client.getCreation()+"',1,'"+client.getImage()+"','"+client.getType()+"','"+client.getCin()+"','"+client.getPermis()+"','"+client.getRib_compte()+"','"+client.getNom_compte()+"','"+client.getExperience()+"','"+client.getNb_course()+"','"+role+"','"+client.getNom()+"','"+client.getNom()+"','"+client.getMail()+"','"+client.getMail()+"','"+client.getMdpcrypter()+"')");
            } catch (SQLException ex) {
             Logger.getLogger(servicesuser.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -433,10 +482,10 @@ public class servicesuser {
      {
       
         try {
+            String role = "a:1:{i:0;s:11:\"ROLE_CLIENT\";}";
             Statement st =c.createStatement();
             //String req="insert into  user,chauffeur values("+ch.getId_ch()+",'"+ch.getNom()+"','"+ch.getPrenom()+"')";
-            st.executeUpdate("insert into  user (nom,prenom,tel,mail,mdp,naissance,creation,active,image,type,nbr_course)values('"+client.getNom()+"','"+client.getPrenom()+"','"+client.getTel()+"','"+client.getMail()+"','"+client.getMdp()+"','"+client.getNaissance()+"','"+client.getCreation()+"',1,'"+client.getImage()+"','"+client.getType()+"','0')");
-            st.executeUpdate("insert into  user (username,username_canonical,email,email_canonical,enabled,password)values('"+client.getNom()+"','"+client.getNom()+"','"+client.getMail()+"','"+client.getMail()+"','1','"+client.getMdp()+"')");
+            st.executeUpdate("insert into  user (nom,prenom,tel,mail,mdp,naissance,creation,active,image,type,nbr_course,roles,username,username_canonical,email,email_canonical,password)values('"+client.getNom()+"','"+client.getPrenom()+"','"+client.getTel()+"','"+client.getMail()+"','"+client.getMdp()+"','"+client.getNaissance()+"','"+client.getCreation()+"',1,'"+client.getImage()+"','"+client.getType()+"','0','"+role+"','"+client.getNom()+"','"+client.getNom()+"','"+client.getMail()+"','"+client.getMail()+"','"+client.getMdpcrypter()+"')");
         } catch (SQLException ex) {
             Logger.getLogger(servicesuser.class.getName()).log(Level.SEVERE, null, ex);
         }
